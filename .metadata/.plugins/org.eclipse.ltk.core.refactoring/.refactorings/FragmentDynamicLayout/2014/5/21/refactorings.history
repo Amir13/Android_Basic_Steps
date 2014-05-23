@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;ListFragment.java&apos; to &apos;ViewElements/src/com.example.viewelements&apos;&#x0D;&#x0A;- Original project: &apos;FragmentDynamicLayout&apos;&#x0D;&#x0A;- Destination element: &apos;ViewElements/src/com.example.viewelements&apos;&#x0D;&#x0A;- Original element: &apos;course.examples.Fragments.DynamicLayout.ListFragment.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=ViewElements/src&lt;com.example.viewelements" element1="/src&lt;course.examples.Fragments.DynamicLayout{ListFragment.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1400627846273" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,40 @@
+package com.example.viewelements;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class ExampleFragment extends Fragment{
+
+	private int menuOptIndex = -1;
+	private TextView menuTextView = null;
+	
+	public int getMenuOptIndex() {
+		return menuOptIndex;
+	}
+	
+	void showIndex(int newIndex) {
+		if (newIndex < 0 || newIndex >= MainActivity.exampleArray.length)
+			return;
+		menuOptIndex = newIndex;
+		menuTextView.setText(MainActivity.exampleArray[menuOptIndex]);
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		menuTextView = (TextView) getActivity().findViewById(R.id.exampleView);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		return inflater.inflate(R.layout.exampleView,
+				container, false);
+	}
+}

@@ -1,0 +1,5 @@
+package com.example.viewelements;
+
+public interface ListFragment2 {
+	public void onListSelection(int index);
+}

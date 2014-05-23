@@ -1,0 +1,99 @@
+package com.example.viewelements;
+
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+
+public class MainActivity extends Activity implements ListSelectionListener {
+
+	public static String[] menuOptions;
+	public static String[] exampleArray;
+
+	private static final int MATCH_PARENT = LinearLayout.LayoutParams.MATCH_PARENT;
+
+	private final ExampleFragment exampleFragment = new ExampleFragment();
+	private final ButtonFragment buttonFragment = new ButtonFragment();
+	private FrameLayout menuFrame, exampleFrame;
+
+	private FragmentManager fragmentManager;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		menuOptions = getResources().getStringArray(R.array.menuOptions);
+		exampleArray = getResources()
+				.getStringArray(R.array.exampleDescription);
+
+		setContentView(R.layout.activity_main);
+
+		menuFrame = (FrameLayout) findViewById(R.id.menu_options);
+		exampleFrame = (FrameLayout) findViewById(R.id.examples);
+
+		fragmentManager = getFragmentManager();
+		FragmentTransaction fTransaction = fragmentManager.beginTransaction();
+		fTransaction.add(R.id.menu_options, new MenuOptions());
+		fTransaction.commit();
+
+		fragmentManager
+				.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+
+					@Override
+					public void onBackStackChanged() {
+						insertLayout();
+
+					}
+				});
+
+	}
+
+	private void insertLayout() {
+
+		if (exampleFragment.isAdded() || buttonFragment.isAdded()) {
+			menuFrame.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT, 1f));
+			exampleFrame.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT, 2f));
+		} else {
+			menuFrame.setLayoutParams(new LinearLayout.LayoutParams(
+					MATCH_PARENT, MATCH_PARENT));
+			exampleFrame.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT));
+		}
+	}
+
+	@Override
+	public void onListSelection(int index) {
+
+		if (!exampleFragment.isAdded() && index == 2) {
+			FragmentTransaction fragmentTransaction = fragmentManager
+					.beginTransaction();
+			// fragmentTransaction.detach(exampleFragment);
+
+			fragmentTransaction.add(R.id.examples, buttonFragment);
+			fragmentTransaction.addToBackStack(null);
+			fragmentTransaction.commit();
+			fragmentManager.executePendingTransactions();
+		}
+
+		if (!exampleFragment.isAdded() && index != 2) {
+			FragmentTransaction fragmentTransaction = fragmentManager
+					.beginTransaction();
+			fragmentTransaction.remove(buttonFragment);
+			fragmentTransaction.add(R.id.examples, exampleFragment);
+			fragmentTransaction.addToBackStack(null);
+			fragmentTransaction.commit();
+			fragmentManager.executePendingTransactions();
+
+		}
+
+		// if(exampleFragment.getMenuOptIndex() != index){
+		// exampleFragment.showIndex(index);
+		// }
+
+	}
+
+}

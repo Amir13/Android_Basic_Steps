@@ -1,0 +1,43 @@
+package com.example.viewelements;
+
+import android.app.Activity;
+import android.app.ListFragment;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MenuOptions extends ListFragment {
+
+	private ListSelectionListener listFragment = null;
+
+	
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		getListView().setItemChecked(position, true);
+		listFragment.onListSelection(position);
+	}
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		
+		listFragment = (ListSelectionListener) activity;
+		
+	}
+	 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+
+		super.onActivityCreated(savedInstanceState);
+		
+		setListAdapter(new ArrayAdapter<String>(getActivity(), R.layout.menu_options), MainActivity.menuOptions));
+	}
+	
+	
+	
+	
+	
+	
+}

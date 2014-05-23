@@ -1,0 +1,38 @@
+package com.example.viewelements;
+
+import android.app.Activity;
+import android.app.ListFragment;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MenuOptions extends ListFragment {
+
+	private ListFragment listFragment = null;
+	public interface ListFragment {
+		public void onListSelection(int index);
+	}
+	
+	@Override
+	public void onListItemClick(ListView l, View v, int position, long id) {
+		getListView().setItemChecked(position, true);
+		listFragment.onListSelection(position);
+	}
+	
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		
+		listFragment = (ListFragment) activity;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,24 @@
+package com.example.viewelements;
+
+import course.examples.Fragments.DynamicLayout.QuoteViewerActivity;
+import android.app.ListFragment;
+import android.widget.TextView;
+
+public class MenuOptions extends ListFragment {
+
+	private int menuOptIndex = -1;
+	private TextView menuTextView = null;
+	
+	
+	public int getMenuOptIndex() {
+		return menuOptIndex;
+	}
+	
+	void showIndex(int newIndex) {
+		if (newIndex < 0 || newIndex >= MainActivity.exampleArray.length)
+			return;
+		menuOptIndex = newIndex;
+		menuTextView.setText(MainActivity.exampleArray[menuOptIndex]);
+	}
+	
+}

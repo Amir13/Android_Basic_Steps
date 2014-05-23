@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="first_scientist_desc">
+Grace Murray Hopper (December 9, 1906 – January 1, 1992) was an American computer scientist and United States Navy rear admiral. A pioneer in the field, she was one of the first programmers of the Harvard Mark I computer, and developed the first compiler for a computer programming language.
+        \n She conceptualized the idea of machine-independent programming languages, which led to the development of COBOL, one of the first modern programming languages. 
+</string>
+
+</resources>

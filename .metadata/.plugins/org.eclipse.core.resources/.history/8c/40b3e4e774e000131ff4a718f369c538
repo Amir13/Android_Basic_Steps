@@ -1,0 +1,5 @@
+package course.examples.Fragments.DynamicLayout;
+
+public interface ListFragment {
+	public void onListSelection(int index);
+}
