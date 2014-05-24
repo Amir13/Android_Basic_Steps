@@ -14,7 +14,7 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name" >
         <activity
-            android:name="course.example.Main.MainMenuActivity"
+            android:name="course.example.main.MainMenuActivity"
             android:label="@string/title_activity_main_menu" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,39 +23,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="course.examples.Fragments.DynamicLayout.MainActivity"
+            android:name="course.example.fragment.Elements.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="course.examples.Fragments.DynamicLayout.InvokingActivity"
+            android:name="course.example.fragment.Elements.InvokingActivity"
             android:label="@string/title_activity_invoking" >
         </activity>
         <activity
-            android:name="course.examples.ViewGroups.ListView"
+            android:name="course.example.viewGroups.ListView"
             android:label="@string/title_activity_list_view" >
         </activity>
         <activity
-            android:name="course.examples.ViewGroups.SpinnerVG"
+            android:name="course.example.viewGroups.SpinnerVG"
             android:label="@string/title_activity_spinner_vg" >
         </activity>
         <activity
-            android:name="course.examples.layout.LinealLayoutActivity"
+            android:name="course.example.layout.LinealLayoutActivity"
             android:label="@string/title_activity_lineal_layout" >
         </activity>
         <activity
-            android:name="course.examples.layout.RelativeLayoutActivity"
+            android:name="course.example.layout.RelativeLayoutActivity"
             android:label="@string/title_activity_relative_layout" >
         </activity>
         <activity
-            android:name="course.examples.layout.TableLayoutActivity"
+            android:name="course.example.layout.TableLayoutActivity"
             android:label="@string/title_activity_table_layout" >
         </activity>
         <activity
-            android:name="course.examples.layout.GridLayoutActivity"
+            android:name="course.example.layout.GridLayoutActivity"
             android:label="@string/title_activity_grid_layout" >
         </activity>
         <activity
-            android:name="course.examples.layout.ImageViewActivity"
+            android:name="course.example.layout.ImageViewActivity"
             android:label="@string/title_activity_grid_layout" >
         </activity>
     </application>

@@ -1,6 +1,8 @@
-1400627242933	Rename field 'menuFragmentLayout'
-1400627837525	Delete element
-1400630472968	Delete element
-1400630542022	Rename type 'ListFragment2'
-1400631977241	Rename resource 'examples.xml'
-1400632026194	Rename resource 'examplesTextView.xml'
+1400890569201	Rename package 'course.examples.Fragments.DynamicLayout'
+1400890576662	Rename package 'course.examples.layout'
+1400890583708	Rename package 'course.examples.ViewGroups'
+1400890793765	Rename package 'course.example.ViewGroups'
+1400890798682	Rename package 'course.example.Main'
+1400890807937	Rename package 'course.example.Fragments.DynamicLayout'
+1400890849371	Rename package 'course.example.Fragments.dynamicLayout'
+1400890857477	Rename package 'course.example.Fragments.Elements'

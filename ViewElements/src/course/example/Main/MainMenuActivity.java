@@ -1,4 +1,4 @@
-package course.example.Main;
+package course.example.main;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,14 +7,14 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import course.examples.Fragments.DynamicLayout.MainActivity;
+import course.example.fragment.Elements.MainActivity;
+import course.example.layout.GridLayoutActivity;
+import course.example.layout.LinealLayoutActivity;
+import course.example.layout.RelativeLayoutActivity;
+import course.example.layout.TableLayoutActivity;
+import course.example.viewGroups.ListView;
+import course.example.viewGroups.SpinnerVG;
 import course.examples.Fragments.DynamicLayout.R;
-import course.examples.ViewGroups.ListView;
-import course.examples.ViewGroups.SpinnerVG;
-import course.examples.layout.GridLayoutActivity;
-import course.examples.layout.LinealLayoutActivity;
-import course.examples.layout.RelativeLayoutActivity;
-import course.examples.layout.TableLayoutActivity;
 
 public class MainMenuActivity extends Activity {
 	Intent intent = new Intent();
