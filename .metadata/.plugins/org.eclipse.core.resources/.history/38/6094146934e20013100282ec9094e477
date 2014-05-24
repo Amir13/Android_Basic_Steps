@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">View Elements</string>
+
+    <string-array name="Titles">
+        <item>Just quotes</item>
+        <item>Button &amp; Toggle button</item>
+        <item>Checkbox &amp; Ratting Bar</item>
+        <item>AutoCompleteTextView</item>
+    </string-array>
+    <string-array name="Quotes">
+        <item>Now cracks a noble heart. Good-night, sweet prince; And flights of angels sing thee to thy rest.</item>
+        <item>As flies to wanton boys, are we to the gods; they kill us for their sport.</item>
+        <item>There is a tide in the affairs of men, which taken at the flood, leads on to fortune. Omitted, all the voyage of their life is bound in shallows and in miseries.</item>
+    </string-array>
+
+    <string name="button">Button</string>
+    <string name="title_activity_invoking">InvokingActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="second_activity">This activity was invoked by a button!!</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="checkbox">CheckBox Example</string>
+    <string name="textview">TextView</string>
+    <string name="autocompletetextview">AutoCompleteTextView</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>

@@ -5,16 +5,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
+import android.widget.Toast;
 
 public class AutoCompleteFragment extends Fragment {
 
+	static AutoCompleteTextView autoComplete ;
+	static ArrayAdapter<String> adapter ;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.button, container, false);
+		return inflater.inflate(R.layout.autocomplete, container, false);
 	}
 	
 	
@@ -23,23 +33,21 @@ public class AutoCompleteFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
-		final Button button = (Button) getActivity().findViewById(R.id.button);
-		
-		          
-		final AutoCompleteTextView autoComplete = (AutoCompleteTextView) getActivity().findViewById(R.id.autoCompleteTextView1);
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(QuoteViewerActivity.getContext(), R.id.textView1, COUNTRIES); 
+		AutoCompleteTextView autoComplete = (AutoCompleteTextView) getActivity().findViewById(R.id.autoCompleteTextView1);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.getContext(), R.layout.list_item, COUNTRIES); 
 		autoComplete.setAdapter(adapter);
 		
-//		autoComplete.setOnItemClickListener(new OnItemClickListener(){
-//
-//			@Override
-//			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-//					long arg3) {
-//				Toast.makeText(QuoteViewerActivity.getContext(), "The winner is:" + arg0.getAdapter().getItem(arg2), Toast.LENGTH_SHORT).show();				
-//			}
-//			
-//			
-//		});
+		
+		
+		autoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				Toast.makeText(MainActivity.getContext(), "The winner is:" + arg0.getAdapter().getItem(arg2), Toast.LENGTH_SHORT).show();
+				
+			}
+		});
 				
 	}
 	
