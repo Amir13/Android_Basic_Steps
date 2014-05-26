@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android Elements</string>
+
+    <string-array name="Titles">
+        <item>Just quotes</item>
+        <item>Button &amp; Toggle button</item>
+        <item>Checkbox &amp; Ratting Bar</item>
+        <item>AutoCompleteTextView</item>
+        <item>RadioGroup</item>
+    </string-array>
+    <string-array name="Quotes">
+        <item>The menu was made with frames and the following options who the basic elements.</item>
+        <item>As flies to wanton boys, are we to the gods; they kill us for their sport.</item>
+        <item>There is a tide in the affairs of men, which taken at the flood, leads on to fortune. Omitted, all the voyage of their life is bound in shallows and in miseries.</item>
+    </string-array>
+    <string-array name="colors">
+        <item>red</item>
+        <item>orange</item>
+        <item>yellow</item>
+        <item>green</item>
+        <item>blue</item>
+        <item>indigo</item>
+        <item>violet</item>
+        <item>aqua</item>
+        <item>black</item>
+        <item>fuchsia</item>
+        <item>gray</item>
+        <item>grey</item>
+        <item>lime</item>
+        <item>maroon</item>
+        <item>navy</item>
+        <item>olive</item>
+        <item>purple</item>
+        <item>silver</item>
+        <item>teal</item>
+        <item>white</item>
+    </string-array>
+
+    <string name="button">Button</string>
+    <string name="title_activity_invoking">InvokingActivity</string>
+    <string name="menu_agenda">Agenda </string>
+    <string name="menu_directions">Direction </string>
+    <string name="menu_my_place">My Place </string>
+    <string name="submenu_reminder">Reminder</string>
+    <string name="second_activity">This activity was invoked by a button!!</string>
+    <string name="togglebutton">ToggleButton</string>
+    <string name="checkbox">CheckBox Example</string>
+    <string name="textview">Type a Country:</string>
+    <string name="title_activity_list_view">ListView</string>
+    <string name="viewElements">Android Basic Elements</string>
+    <string name="groupsView">Android Adpater &amp; AdapterViews</string>
+    <string name="title_activity_spinner_vg">SpinnerVG</string>
+    <string name="spinner">Pick a Color. Any Color.</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="buttonViewElements">View Elements</string>
+    <string name="buttonListView">ListView</string>
+    <string name="spinnierView">SpinnierView</string>
+    <string name="layoutType">Layouts</string>
+    <string name="title_activity_lineal_layout">LinealLayoutActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_description">Press and Hold to get Context Menu</string>
+    <string name="RelativeLayout">RelativeLayout</string>
+    <string name="title_activity_relative_layout">RelativeLayoutActivity</string>
+    <string name="relativeLayoutDescription">In the RelativeLayout the elemetnts are arreged according the position of the other elements.</string>
+    <string name="TableLayout">TableLayout</string>
+    <string name="GridLayout">GridLayout</string>
+    <string name="title_activity_table_layout">TableLayoutActivity</string>
+    <string name="tableLayoutDescription">This layout is formed by &lt;TableRow> and inside each element define the column of its position. android:layout_column="1"</string>
+    <string name="title_activity_grid_layout">GridLayoutActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu">Menu</string>
+    <string name="menu_context">Context Menu</string>
+
+</resources>

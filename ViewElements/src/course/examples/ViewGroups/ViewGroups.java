@@ -1,4 +1,4 @@
-package course.examples.ViewGroups;
+package course.examples.viewGroups;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class ViewGroups extends Fragment{
 

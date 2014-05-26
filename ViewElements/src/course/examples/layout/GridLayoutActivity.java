@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class GridLayoutActivity extends Activity {
 

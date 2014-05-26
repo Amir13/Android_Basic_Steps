@@ -1,4 +1,4 @@
-package course.examples.ViewGroups;
+package course.examples.viewGroups;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class ListView extends ListActivity {
 

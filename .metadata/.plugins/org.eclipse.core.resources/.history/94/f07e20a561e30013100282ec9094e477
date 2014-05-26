@@ -1,0 +1,141 @@
+package course.examples.Fragments.DynamicLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import course.examples.Fragments.DynamicLayout.MenuOption.ListSelectionListener;
+import course.examples.ViewGroups.ViewGroups;
+
+public class MainActivity extends Activity implements ListSelectionListener {
+
+	public static String[] mTitleArray;
+	public static String[] mQuoteArray;
+
+	private FragmentManager mFragmentManager;
+	private FrameLayout mTitleFrameLayout, mQuotesFrameLayout;
+
+	private static final int MATCH_PARENT = LinearLayout.LayoutParams.MATCH_PARENT;
+	private static final String TAG = "QuoteViewerActivity";
+
+	private final MenuOption menuOption = new MenuOption(); 
+	private final List<Fragment> arrayFragment = new ArrayList<Fragment>();
+
+	private final QuotesFragment mQuoteFragment = new QuotesFragment();
+	private final ButtonFragment button = new ButtonFragment();
+	private final CheckboxFragment chkboxFragment = new CheckboxFragment();
+	private final AutoCompleteFragment autocomplete = new AutoCompleteFragment();
+	private final ViewGroups viewGroups = new ViewGroups();
+	
+	
+
+	private static Context context;
+
+	public static Context getContext() {
+		return context;
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+		Log.i(TAG, getClass().getSimpleName() + ":entered onCreate()");
+
+		super.onCreate(savedInstanceState);
+
+		setGlobalConfiguration();
+
+		setContentView(R.layout.activity_main);
+
+		mTitleFrameLayout = (FrameLayout) findViewById(R.id.title_fragment_container);
+		mQuotesFrameLayout = (FrameLayout) findViewById(R.id.quote_fragment_container);
+
+		mFragmentManager = getFragmentManager();
+		FragmentTransaction fragmentTransaction = mFragmentManager
+				.beginTransaction();
+		fragmentTransaction
+				.add(R.id.title_fragment_container, menuOption);
+		fragmentTransaction.commit();
+
+		mFragmentManager
+				.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+					public void onBackStackChanged() {
+						setLayout();
+					}
+				});
+	}
+
+	private void setLayout() {
+
+		int fragmentAdded = 0;
+		for (Fragment element : arrayFragment) {
+
+			fragmentAdded += (element.isAdded()) ? 1 : 0;
+		}
+
+		if (fragmentAdded == 0 || fragmentAdded == 4) {
+			mTitleFrameLayout.setLayoutParams(new LinearLayout.LayoutParams(
+					MATCH_PARENT, MATCH_PARENT));
+			mQuotesFrameLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT));
+		} else {
+			mTitleFrameLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT, 1f));
+			mQuotesFrameLayout.setLayoutParams(new LinearLayout.LayoutParams(0,
+					MATCH_PARENT, 2f));
+		}
+
+	}
+
+	private void setGlobalConfiguration() {
+		mTitleArray = getResources().getStringArray(R.array.Titles);
+		mQuoteArray = getResources().getStringArray(R.array.Quotes);
+
+		arrayFragment.add(mQuoteFragment);
+		arrayFragment.add(button);
+		arrayFragment.add(chkboxFragment);
+		arrayFragment.add(autocomplete);
+		arrayFragment.add(viewGroups);
+
+		MainActivity.context = getApplicationContext();
+
+	}
+
+	@Override
+	public void onListSelection(int index) {
+
+		addFragment(index);
+
+		if (index == 0) {
+			mQuoteFragment.showIndex(index);
+		}
+	}
+
+	public void addFragment(int fragmentIndex) {
+
+		Fragment fragmentSelected = arrayFragment.get(fragmentIndex);
+
+		FragmentTransaction fragmentTransaction = mFragmentManager
+				.beginTransaction();
+
+		for (Fragment element : arrayFragment) {
+			fragmentTransaction.remove(element);
+		}
+
+		fragmentTransaction
+				.add(R.id.quote_fragment_container, fragmentSelected);
+		fragmentTransaction.addToBackStack(null);
+
+		fragmentTransaction.commit();
+		mFragmentManager.executePendingTransactions();
+
+	}
+
+}

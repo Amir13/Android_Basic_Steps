@@ -8,7 +8,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class ListView extends ListActivity {
 

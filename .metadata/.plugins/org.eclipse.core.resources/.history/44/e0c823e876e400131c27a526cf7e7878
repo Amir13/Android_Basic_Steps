@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainMenuActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/viewElements" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonViewElements"
+        android:layout_marginTop="29dp"
+        android:text="@string/groupsView" />
+
+    <Button
+        android:id="@+id/buttonViewGroups"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:text="@string/buttonListView" />
+
+    <Button
+        android:id="@+id/buttonSpinnerViewGroup"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonViewGroups"
+        android:layout_alignBottom="@+id/buttonViewGroups"
+        android:layout_centerHorizontal="true"
+        android:text="@string/spinnierView" />
+
+    <Button
+        android:id="@+id/buttonViewElements"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="@string/buttonViewElements" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonViewGroups"
+        android:layout_below="@+id/buttonViewGroups"
+        android:layout_marginTop="25dp"
+        android:text="@string/layoutType" />
+
+    <Button
+        android:id="@+id/buttonLinealLayout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:text="@string/LinealLayout" />
+
+    <Button
+        android:id="@+id/buttonRelativeLayout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonLinealLayout"
+        android:layout_toRightOf="@+id/buttonViewElements"
+        android:lines="2"
+        
+        android:text="@string/RelativeLayout" />
+
+    <Button
+        android:id="@+id/buttonTableLayout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonLinealLayout"
+        android:layout_below="@+id/buttonRelativeLayout"
+        android:text="@string/TableLayout" />
+
+    <Button
+        android:id="@+id/buttonGridLayout"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonTableLayout"
+        android:layout_alignBottom="@+id/buttonTableLayout"
+        android:layout_alignLeft="@+id/buttonRelativeLayout"
+        android:text="@string/GridLayout" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonTableLayout"
+        android:layout_below="@+id/buttonTableLayout"
+        android:layout_marginTop="19dp"
+        android:text="@string/menu" />
+
+    <Button
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:text="@string/menu" />
+
+</RelativeLayout>

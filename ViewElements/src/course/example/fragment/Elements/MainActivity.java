@@ -1,4 +1,4 @@
-package course.example.fragment.Elements;
+package course.example.fragment.elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import course.example.fragment.Elements.MenuOption.ListSelectionListener;
+import course.example.fragment.elements.MenuOption.ListSelectionListener;
+import course.example.main.R;
 import course.example.viewGroups.ViewGroups;
-import course.examples.Fragments.DynamicLayout.R;
 
 public class MainActivity extends Activity implements ListSelectionListener {
 

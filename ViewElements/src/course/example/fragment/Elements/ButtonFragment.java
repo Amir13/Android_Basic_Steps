@@ -1,6 +1,6 @@
-package course.example.fragment.Elements;
+package course.example.fragment.elements;
 
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;

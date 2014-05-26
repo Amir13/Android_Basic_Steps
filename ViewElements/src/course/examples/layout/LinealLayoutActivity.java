@@ -3,7 +3,7 @@ package course.examples.layout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class LinealLayoutActivity extends Activity {
 

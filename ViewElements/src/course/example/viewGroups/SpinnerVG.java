@@ -8,7 +8,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 import android.view.View;
 
 public class SpinnerVG extends Activity {

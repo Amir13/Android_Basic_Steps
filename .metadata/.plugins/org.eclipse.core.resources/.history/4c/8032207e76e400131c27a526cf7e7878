@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="course.examples.Fragments.DynamicLayout"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="false"
+        android:configChanges="orientation|screenSize|keyboardHidden"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <activity
+            android:name="course.example.main.MainMenuActivity"
+            android:label="@string/title_activity_main_menu" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="course.examples.fragment.dynamicLayout.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="course.examples.fragment.dynamicLayout.InvokingActivity"
+            android:label="@string/title_activity_invoking" >
+        </activity>
+        <activity
+            android:name="course.examples.viewGroups.ListView"
+            android:label="@string/title_activity_list_view" >
+        </activity>
+        <activity
+            android:name="course.examples.viewGroups.SpinnerVG"
+            android:label="@string/title_activity_spinner_vg" >
+        </activity>
+        <activity
+            android:name="course.examples.layout.LinealLayoutActivity"
+            android:label="@string/title_activity_lineal_layout" >
+        </activity>
+        <activity
+            android:name="course.examples.layout.RelativeLayoutActivity"
+            android:label="@string/title_activity_relative_layout" >
+        </activity>
+        <activity
+            android:name="course.examples.layout.TableLayoutActivity"
+            android:label="@string/title_activity_table_layout" >
+        </activity>
+        <activity
+            android:name="course.examples.layout.GridLayoutActivity"
+            android:label="@string/title_activity_grid_layout" >
+        </activity>
+        <activity
+            android:name="course.examples.layout.ImageViewActivity"
+            android:label="@string/title_activity_grid_layout" >
+        </activity>
+        <activity
+            android:name="course.examples.Fragments.DynamicLayout.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+    </application>
+
+</manifest>

@@ -3,7 +3,7 @@ package course.example.layout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
-import course.examples.Fragments.DynamicLayout.R;
+import course.example.main.R;
 
 public class TableLayoutActivity extends Activity {
 
