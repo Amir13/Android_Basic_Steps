@@ -53,7 +53,7 @@
     <string name="groupsView">Android Adpater &amp; AdapterViews</string>
     <string name="title_activity_spinner_vg">SpinnerVG</string>
     <string name="spinner">Pick a Color. Any Color.</string>
-    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="title_activity_main_menu">Android Elements</string>
     <string name="buttonViewElements">View Elements</string>
     <string name="buttonListView">ListView</string>
     <string name="spinnierView">SpinnierView</string>
