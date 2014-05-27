@@ -13,6 +13,7 @@ import course.example.layout.LinealLayoutActivity;
 import course.example.layout.RelativeLayoutActivity;
 import course.example.layout.TableLayoutActivity;
 import course.example.main.R;
+import course.example.menu.ManuActivityTabs;
 import course.example.menu.MenuActivity;
 import course.example.viewGroups.ListView;
 import course.example.viewGroups.SpinnerVG;
@@ -32,8 +33,12 @@ public class MainMenuActivity extends Activity {
 		final Button buttonRealtiveLayout = (Button) findViewById(R.id.buttonRelativeLayout);
 		final Button buttonTableLayout = (Button) findViewById(R.id.buttonTableLayout);
 		final Button buttonGridLayout = (Button) findViewById(R.id.buttonGridLayout);
+		
 		final Button buttonMenu = (Button) findViewById(R.id.buttonMenu);
+		final Button buttonMenuTabs = (Button) findViewById(R.id.buttonMenuTabs);
 
+		final Button buttonDialog = (Button) findViewById(R.id.buttonDialog);
+		
 		buttonElementsView.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -118,6 +123,28 @@ public class MainMenuActivity extends Activity {
 			public void onClick(View arg0) {
 				intent = new Intent();
 				intent.setClass(getApplicationContext(), MenuActivity.class);
+
+				startActivity(intent);
+			}
+		});
+		
+		buttonMenuTabs.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				intent = new Intent();
+				intent.setClass(getApplicationContext(), ManuActivityTabs.class);
+
+				startActivity(intent);
+			}
+		});
+		
+		buttonDialog.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				intent = new Intent();
+				intent.setClass(getApplicationContext(), ManuActivityTabs.class);
 
 				startActivity(intent);
 			}

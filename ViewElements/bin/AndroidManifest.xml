@@ -10,7 +10,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
     </uses-permission>
-    
+
     <application
         android:allowBackup="false"
         android:configChanges="orientation|screenSize|keyboardHidden"
@@ -64,6 +64,10 @@
         <activity
             android:name="course.example.menu.MenuActivity"
             android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="course.example.menu.ManuActivityTabs"
+            android:label="@string/title_activity_manu_activity_tabs" >
         </activity>
     </application>
 

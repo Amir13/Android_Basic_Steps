@@ -77,7 +77,6 @@
         android:layout_alignTop="@+id/buttonLinealLayout"
         android:layout_toRightOf="@+id/buttonViewElements"
         android:lines="2"
-        
         android:text="@string/RelativeLayout" />
 
     <Button
@@ -99,6 +98,15 @@
         android:layout_alignLeft="@+id/buttonRelativeLayout"
         android:text="@string/GridLayout" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonTableLayout"
+        android:layout_below="@+id/buttonTableLayout"
+        android:layout_marginTop="21dp"
+        android:text="@string/menu" />
+
     <Button
         android:id="@+id/buttonMenu"
         style="?android:attr/buttonStyleSmall"
@@ -108,13 +116,31 @@
         android:layout_below="@+id/textView4"
         android:text="@string/menu" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <Button
+        android:id="@+id/buttonMenuTabs"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonTableLayout"
-        android:layout_below="@+id/buttonTableLayout"
-        android:layout_marginTop="21dp"
-        android:text="@string/menu" />
+        android:layout_alignBaseline="@+id/buttonMenu"
+        android:layout_alignBottom="@+id/buttonMenu"
+        android:layout_toRightOf="@+id/buttonViewGroups"
+        android:text="@string/menu_tabs" />
+
+    <TextView
+        android:id="@+id/textDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonMenu"
+        android:layout_below="@+id/buttonMenu"
+        android:text="@string/dialog" />
+
+    <Button
+        android:id="@+id/buttonDialog"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textDialog"
+        android:layout_below="@+id/textDialog"
+        android:text="@string/dialog" />
 
 </RelativeLayout>
