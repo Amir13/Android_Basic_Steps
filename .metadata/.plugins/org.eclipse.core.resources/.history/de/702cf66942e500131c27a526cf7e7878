@@ -1,0 +1,5 @@
+package course.example.fragment.elements;
+
+public class MenuLeftFragment extends Fragments{
+
+}

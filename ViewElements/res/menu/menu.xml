@@ -3,17 +3,14 @@
     <item
         android:id="@+id/menu_agenda"
         android:icon="@android:drawable/ic_menu_help"
-        android:showAsAction="ifRoom|withText"
         android:title="@string/menu_agenda"/>
     <item
         android:id="@+id/menu_directions"
         android:icon="@android:drawable/ic_menu_directions"
-        android:showAsAction="ifRoom|withText"
         android:title="@string/menu_directions"/>
     <item
         android:id="@+id/menu_my_place"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:showAsAction="ifRoom|withText"
         android:title="@string/menu_submenu">
         <menu>
             <item
@@ -21,6 +18,18 @@
                 android:icon="@android:drawable/ic_popup_reminder"
                 android:title="@string/submenu_opc1"/>
         </menu>
+    </item>
+    <item
+        android:id="@+id/menu_directions2"
+        android:icon="@android:drawable/ic_menu_directions"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_actionbar">
+        <menu>
+            <item 
+                android:id="@+id/submenu_directions2"
+                android:title="@string/submenu_actionbar"
+                />
+            </menu>
     </item>
 
 </menu>

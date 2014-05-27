@@ -22,7 +22,7 @@ public class QuotesFragment extends Fragment {
 		return mCurrIdx;
 	}
 
-	void showIndex(int newIndex) {
+	public void showIndex(int newIndex) {
 		if (newIndex < 0 || newIndex >= mQuoteArrLen)
 			return;
 		mCurrIdx = newIndex;
