@@ -81,5 +81,6 @@
     <string name="menu_context_op1">Context Option 1</string>
     <string name="menu_context_op2">Context Option 2</string>
     <string name="menu_context_op3">Context Option 3</string>
+    <string name="menu_fragment">fragment</string>
 
 </resources>

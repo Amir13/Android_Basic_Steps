@@ -42,6 +42,7 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f080022;
+        public static final int actionbar_item=0x7f08002c;
         public static final int autoCompleteTextView1=0x7f080016;
         public static final int button=0x7f080018;
         public static final int button1=0x7f080014;
@@ -117,9 +118,10 @@ public final class R {
         public static final int main_menu=0x7f070005;
         public static final int menu=0x7f070006;
         public static final int menu_context=0x7f070007;
-        public static final int relative_layout=0x7f070008;
-        public static final int spinner_vg=0x7f070009;
-        public static final int table_layout=0x7f07000a;
+        public static final int menu_fragment=0x7f070008;
+        public static final int relative_layout=0x7f070009;
+        public static final int spinner_vg=0x7f07000a;
+        public static final int table_layout=0x7f07000b;
     }
     public static final class string {
         public static final int GridLayout=0x7f050021;
@@ -146,6 +148,7 @@ public final class R {
         public static final int menu_description2=0x7f05001a;
         public static final int menu_description3=0x7f05001b;
         public static final int menu_directions=0x7f050004;
+        public static final int menu_fragment=0x7f05002c;
         public static final int menu_submenu=0x7f050005;
         public static final int relativeLayoutDescription=0x7f05001f;
         public static final int second_activity=0x7f050009;

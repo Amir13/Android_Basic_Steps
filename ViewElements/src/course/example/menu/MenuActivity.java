@@ -16,7 +16,7 @@ import course.example.main.R;
 public class MenuActivity extends Activity {
 
 	private FragmentManager fragmentManager;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,12 +24,13 @@ public class MenuActivity extends Activity {
 		TextView tv = (TextView) findViewById(R.id.text_view);
 
 		registerForContextMenu(tv);
-		
-		//Add the left fragment
+
+		// Add the left fragment
 		fragmentManager = getFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
-//		fragmentTransaction.add(R.id.title_fragment_container, new MenuLeftFragment());
+		fragmentTransaction
+				.add(R.id.menu_left_fragment, new MenuLeftFragment());
 		fragmentTransaction.commit();
 	}
 
@@ -49,10 +50,15 @@ public class MenuActivity extends Activity {
 					Toast.LENGTH_LONG).show();
 			return true;
 
+		case R.id.actionbar_item:
+			Toast.makeText(getApplicationContext(),
+					"This option was added by MenuLeftFragment",
+					Toast.LENGTH_SHORT).show();
+			return true;
 		default:
 			Toast.makeText(getApplicationContext(),
-					"Your selection was: " + item.toString(),
-					Toast.LENGTH_LONG).show();
+					"Your selection was: " + item.toString(), Toast.LENGTH_LONG)
+					.show();
 			return true;
 		}
 	}
@@ -70,7 +76,6 @@ public class MenuActivity extends Activity {
 		Toast.makeText(getApplicationContext(),
 				"Menu Selection: " + item.toString(), Toast.LENGTH_SHORT)
 				.show();
-
 		return true;
 	}
 }

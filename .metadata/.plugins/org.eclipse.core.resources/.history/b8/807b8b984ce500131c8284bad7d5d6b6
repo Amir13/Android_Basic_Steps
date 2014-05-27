@@ -1,0 +1,48 @@
+package course.example.menu;
+
+import course.example.main.R;
+import android.app.Fragment;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+public class MenuLeftFragment extends Fragment{
+	
+	private TextView textview = null;
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setHasOptionsMenu(true);
+		setRetainInstance(true);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+
+		return inflater.inflate(R.layout.quote_fragment,
+				container, false);
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		textview = (TextView) getActivity().findViewById(R.id.quoteView);
+		textview.setText("When this fragment is added \" onActivityCreated \" the option \" \" is added in the menu. ");
+		textview.setTextSize(20);
+		textview.setTextColor(Color.BLUE);
+	}
+	
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.menu_fragment, menu);
+	}
+}

@@ -1,0 +1,59 @@
+package course.example.menu;
+
+import android.app.Fragment;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.TextView;
+import android.widget.Toast;
+import course.example.main.R;
+
+public class MenuLeftFragment extends Fragment {
+
+	private TextView textview = null;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setHasOptionsMenu(true);
+		setRetainInstance(true);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+
+		return inflater.inflate(R.layout.quote_fragment, container, false);
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
+		textview = (TextView) getActivity().findViewById(R.id.quoteView);
+		textview.setText("When this fragment is added \" onActivityCreated \" the option \" Low Battery\" is added in the menu. ");
+		textview.setTextSize(15);
+		textview.setTextColor(Color.BLUE);
+		textview.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT) );
+	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.menu_fragment, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Toast.makeText(getActivity().getApplicationContext(),
+				"This action came from the Fragment MenuLeftFragment", Toast.LENGTH_SHORT)
+				.show();
+		return true;
+	}
+}
