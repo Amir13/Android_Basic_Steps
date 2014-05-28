@@ -83,7 +83,7 @@
     <string name="menu_context_op3">Context Option 3</string>
     <string name="menu_fragment">fragment</string>
     <string name="menu_tabs">Menu Tabs</string>
-    <string name="title_activity_manu_activity_tabs">ManuActivityTabs</string>
+    <string name="title_activity_manu_activity_tabs">MainActivityTabs</string>
     <string name="dialog">Dialog</string>
 
 </resources>

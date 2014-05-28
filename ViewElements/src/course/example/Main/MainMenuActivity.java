@@ -12,8 +12,7 @@ import course.example.layout.GridLayoutActivity;
 import course.example.layout.LinealLayoutActivity;
 import course.example.layout.RelativeLayoutActivity;
 import course.example.layout.TableLayoutActivity;
-import course.example.main.R;
-import course.example.menu.ManuActivityTabs;
+import course.example.menu.MainActivityTabs;
 import course.example.menu.MenuActivity;
 import course.example.viewGroups.ListView;
 import course.example.viewGroups.SpinnerVG;
@@ -133,7 +132,7 @@ public class MainMenuActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				intent = new Intent();
-				intent.setClass(getApplicationContext(), ManuActivityTabs.class);
+				intent.setClass(getApplicationContext(), MainActivityTabs.class);
 
 				startActivity(intent);
 			}
@@ -144,7 +143,7 @@ public class MainMenuActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				intent = new Intent();
-				intent.setClass(getApplicationContext(), ManuActivityTabs.class);
+				intent.setClass(getApplicationContext(), MainActivityTabs.class);
 
 				startActivity(intent);
 			}

@@ -10,13 +10,11 @@ import android.widget.GridView;
 import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter {
-
-	private Context context;
-	private List<Integer> thumbIds;
 	private static final int PADDING = 8;
 	private static final int WIDTH = 250;
 	private static final int HEIGHT = 250;
-	
+	private Context context;
+	private List<Integer> thumbIds;	
 	
 	public ImageAdapter(Context c, List<Integer> ids) {
 		context = c;
