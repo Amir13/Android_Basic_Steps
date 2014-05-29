@@ -61,7 +61,7 @@
     <string name="spinnierView">SpinnierView</string>
     <string name="layoutType">Layouts</string>
     <string name="title_activity_lineal_layout">LinealLayoutActivity</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="example_description_dialog">This example show a dialog and how interact with the reponses.</string>
     <string name="menu_description">Press and Hold this message to show the Context Menu</string>
     <string name="menu_description2">Push the menu button to display the second menu.</string>
     <string name="menu_description3">The ActionBar appear using "android:showAsAction="ifRoom|withText"". Rotate to portrait mode to see the difference.</string>
@@ -85,5 +85,7 @@
     <string name="menu_tabs">Menu Tabs</string>
     <string name="title_activity_manu_activity_tabs">MainActivityTabs</string>
     <string name="dialog">Dialog</string>
+    <string name="title_activity_dialog">DialogActivity</string>
+    <string name="button_dialog">Press me!</string>
 
 </resources>

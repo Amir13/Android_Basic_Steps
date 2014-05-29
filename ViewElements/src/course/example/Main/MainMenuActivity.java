@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import course.example.dialog.DialogActivity;
 import course.example.fragment.elements.MainActivity;
 import course.example.layout.GridLayoutActivity;
 import course.example.layout.LinealLayoutActivity;
@@ -143,7 +144,7 @@ public class MainMenuActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				intent = new Intent();
-				intent.setClass(getApplicationContext(), MainActivityTabs.class);
+				intent.setClass(getApplicationContext(), DialogActivity.class);
 
 				startActivity(intent);
 			}
