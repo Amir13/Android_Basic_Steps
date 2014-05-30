@@ -1,0 +1,83 @@
+package com.android.course.viewelement;
+
+import com.android.course.notification.NotificationSecondActivity;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	// Notification
+	private Intent secondIntent;
+	private PendingIntent pendingIntent;
+	private int notificationCounter; 
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		// Customized Toast
+		createToast();
+
+		// Notification
+		createNotification();
+	}
+
+	private void createToast() {
+		// Customized Toast
+		Button buttonToast = (Button) findViewById(R.id.buttonToast);
+
+		buttonToast.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Toast toast = new Toast(getApplicationContext());
+				toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+				toast.setDuration(Toast.LENGTH_SHORT);
+				toast.setView(getLayoutInflater().inflate(
+						R.layout.custom_toast, null));
+				toast.show();
+			}
+		});
+
+	}
+
+	private void createNotification() {
+		secondIntent = new Intent(getApplicationContext(),
+				NotificationSecondActivity.class);
+		pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
+				secondIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+		
+		Button buttonNotification = (Button) findViewById(R.id.buttonNotification);
+		buttonNotification.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Notification.Builder notificationBuilder = new Notification.Builder(getApplicationContext());
+				notificationBuilder.setTicker("This is the Notification Message");
+				notificationBuilder.setSmallIcon(android.R.drawable.btn_star_big_on);
+				notificationBuilder.setAutoCancel(true);
+				notificationBuilder.setContentTitle("Notification Title");
+				notificationBuilder.setContentText("You've been notified " + )
+			}
+		});
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}

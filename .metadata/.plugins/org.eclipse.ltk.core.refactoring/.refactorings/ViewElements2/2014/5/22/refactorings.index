@@ -1,0 +1,7 @@
+1401336615489	Extracts string 'This is a customized Toast' into R.string.toast_message
+1401338723768	Extracts string 'TextView' into R.string.notification
+1401338964221	Move compilation unit
+1401339005297	Delete element
+1401339220265	Rename resource 'activity_notification_second.xml'
+1401340529762	Rename resource 'sound'
+1401418212875	Extracts string 'TextView' into R.string.broadcast

@@ -1,19 +1,23 @@
 package com.android.course.viewelement;
 
-import com.android.course.notification.NotificationSecondActivity;
-
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import com.android.course.notification.NotificationSecondActivity;
 
 public class MainActivity extends Activity {
 
@@ -21,7 +25,18 @@ public class MainActivity extends Activity {
 	private Intent secondIntent;
 	private PendingIntent pendingIntent;
 	private int notificationCounter; 
-//	private Uri soundUri = Uri.parse("android.resource://com.android.course.viewelement/" + R.);
+	private int notificationCounter2; 
+	private Uri soundUri = Uri.parse("android.resource://com.android.course.viewelement/" + R.raw.alarm_rooster);
+	private Uri soundUri2 = Uri.parse("android.resource://com.android.course.viewelement/" + R.raw.do_it);
+	private long[] vibratePattern = { 0, 200, 200, 300 };
+	private RemoteViews remoteView = new RemoteViews("com.android.course.viewelement", R.layout.custom_toast);
+	// Notification ID to allow for future updates
+	private static final int NOTIFICATION_ID = 1;
+	private static final int CUSTOM_NOTIFICATION_ID = 2;
+	
+	// Broadcast
+	private static final String INTENT_IDENTIFIER = "my.intent.identifier";
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +48,12 @@ public class MainActivity extends Activity {
 
 		// Notification
 		createNotification();
+		
+		// Custom Notification
+		createCustomNotification();
+		
+		// Broadcast static registration
+		broadcastStaticRegistration();
 	}
 
 	private void createToast() {
@@ -70,15 +91,68 @@ public class MainActivity extends Activity {
 				notificationBuilder.setSmallIcon(android.R.drawable.btn_star_big_on);
 				notificationBuilder.setAutoCancel(true);
 				notificationBuilder.setContentTitle("Notification Title");
-				notificationBuilder.setContentText("You've been notified : (" + notificationCounter + ")");
+				notificationBuilder.setContentText("You've been notified : (" + ++notificationCounter + ")");
 				notificationBuilder.setContentIntent(pendingIntent);
-//				notificationBuilder.setSound(sound);
-//				notificationBuilder.setVibrate(pattern);
+//				notificationBuilder.setSound(soundUri);
+				notificationBuilder.setLights(Color.RED, 3000, 3000);
+				notificationBuilder.setVibrate(vibratePattern);
+				
+
+				NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+				nm.notify(NOTIFICATION_ID, notificationBuilder.build());
+			}
+		});
+		
+	}
+	
+	private void createCustomNotification() {
+		secondIntent = new Intent(getApplicationContext(),
+				NotificationSecondActivity.class);
+		pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0,
+				secondIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+		
+		Button buttonNotification = (Button) findViewById(R.id.buttonCustomNotification);
+		buttonNotification.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				remoteView.setTextViewText(R.id.textView1, getString(R.string.message) + "(" + ++notificationCounter + ")");
+				
+				
+				Notification.Builder notificationBuilder = new Notification.Builder(getApplicationContext());
+				notificationBuilder.setTicker("This is the Notification Message");
+				notificationBuilder.setSmallIcon(android.R.drawable.btn_star_big_off);
+				notificationBuilder.setAutoCancel(true);
+				notificationBuilder.setContentTitle("Notification Title");
+				notificationBuilder.setContentText("You've been notified : (" + ++notificationCounter2 + ")");
+				notificationBuilder.setContentIntent(pendingIntent);
+				notificationBuilder.setSound(soundUri2);
+				notificationBuilder.setLights(Color.RED, 3000, 3000);
+				notificationBuilder.setVibrate(vibratePattern);
+				notificationBuilder.setContent(remoteView);
+				
+
+				NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+				nm.notify(CUSTOM_NOTIFICATION_ID, notificationBuilder.build());
 			}
 		});
 		
 	}
 
+	private void broadcastStaticRegistration(){
+		
+	Button buttonStatic = (Button) findViewById(R.id.buttonBroadcastSingle);
+	buttonStatic.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View arg0) {
+			sendBroadcast(new Intent(INTENT_IDENTIFIER), android.Manifest.permission.VIBRATE);
+		}
+	});
+		
+	}
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);

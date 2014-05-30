@@ -1,0 +1,5 @@
+package com.android.course.broadcast;
+
+public class MyBroadcastReceiver {
+
+}

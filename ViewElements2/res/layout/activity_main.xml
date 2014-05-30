@@ -41,4 +41,32 @@
         android:layout_below="@+id/textView2"
         android:text="@string/notification" />
 
+    <Button
+        android:id="@+id/buttonCustomNotification"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonNotification"
+        android:layout_alignBottom="@+id/buttonNotification"
+        android:layout_toRightOf="@+id/textView1"
+        android:text="@string/custom_notification" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonNotification"
+        android:layout_below="@+id/buttonNotification"
+        android:layout_marginTop="19dp"
+        android:text="@string/broadcast" />
+
+    <Button
+        android:id="@+id/buttonBroadcastSingle"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:text="@string/broadcast_static" />
+
 </RelativeLayout>
