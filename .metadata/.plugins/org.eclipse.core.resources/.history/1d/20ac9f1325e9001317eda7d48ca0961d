@@ -1,0 +1,91 @@
+package com.android.course.handler;
+
+import com.android.course.handler.HandlerRunnable.LoadImage;
+import com.android.course.viewelement.R;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+public class HandlerMessage extends Activity {
+	private final static int SET_PROGRESS_BAR_VISIBILITY = 0;
+	private final static int PROGRESS_UPDATE = 1;
+	private final static int SET_BITMAP = 2;
+
+	private ImageView imageView;
+	private ProgressBar progressBar;
+
+	Handler handler = new Handler() {
+		@Override
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case SET_PROGRESS_BAR_VISIBILITY:
+				progressBar.setVisibility((Integer) msg.obj);
+				break;
+			case PROGRESS_UPDATE:
+				progressBar.setProgress((Integer) msg.obj);
+				break;
+			case SET_BITMAP:
+				imageView.setImageBitmap((Bitmap) msg.obj);
+				break;
+			}
+
+		}
+	};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_simple_thread);
+
+		imageView = (ImageView) findViewById(R.id.imageLoader);
+		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+		Button buttonImage = (Button) findViewById(R.id.buttonImage);
+		buttonImage.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				new Thread(new LoadImage(R.drawable.image8)).start();
+			}
+		});
+
+		Button buttonToast = (Button) findViewById(R.id.buttonToast);
+		buttonToast.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(
+						getApplicationContext(),
+						"Launching a message while image is loading using a Handler with Message",
+						Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+	}
+
+	private class LoadImage implements Runnable {
+		private int imageId;
+		private final Handler handler;
+
+		public LoadImage(int imageId, Handler handler) {
+			this.imageId = imageId;
+			this.handler = handler;
+		}
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			
+		}
+
+	}	
+	
+}

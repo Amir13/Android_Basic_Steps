@@ -5,3 +5,16 @@
 1401339220265	Rename resource 'activity_notification_second.xml'
 1401340529762	Rename resource 'sound'
 1401418212875	Extracts string 'TextView' into R.string.broadcast
+1401508528147	Move compilation unit
+1401508792680	Extracts string 'TextView' into R.string.thread
+1401508866610	Extracts string 'Button' into R.string.thread_simple
+1401509461522	Extracts string 'Button' into R.string.btn_load_image
+1401509765100	Delete element
+1401537383739	Extracts string 'Button' into R.string.btn
+1401537936810	Delete element
+1401537951932	Delete element
+1401539808447	Move compilation unit
+1401573848200	Extracts string 'Handlers' into R.string.handlers
+1401573869344	Extracts string 'Runnable' into R.string.handler_runnable
+1401573882235	Extracts string 'Message' into R.string.message
+1401577697495	Delete element

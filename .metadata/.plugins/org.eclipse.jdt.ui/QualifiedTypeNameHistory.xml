@@ -8,4 +8,13 @@
 <fullyQualifiedTypeName name="course.examples.Fragments.DynamicLayout.R.layout"/>
 <fullyQualifiedTypeName name="course.example.menu.MenuActivity"/>
 <fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="com.android.course.handler.HandlerMessage"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="android.graphics.Bitmap"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="android.os.Message"/>
+<fullyQualifiedTypeName name="android.graphics.BitmapFactory"/>
+<fullyQualifiedTypeName name="com.android.course.viewelement.R.id"/>
+<fullyQualifiedTypeName name="android.widget.ProgressBar"/>
 </qualifiedTypeNameHistroy>

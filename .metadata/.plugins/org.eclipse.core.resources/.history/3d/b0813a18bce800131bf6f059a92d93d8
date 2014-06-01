@@ -1,0 +1,20 @@
+package com.android.course.viewelement;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+public class AsyncActivity extends Activity {
+
+	private Bitmap bitmap;
+	private ImageView imageView;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_simple_thread);
+	}
+
+
+}

@@ -22,22 +22,38 @@ public final class R {
     }
     public static final class drawable {
         public static final int ic_launcher=0x7f020000;
+        public static final int image8=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
-        public static final int buttonBroadcastSingle=0x7f090006;
+        public static final int action_settings=0x7f090016;
+        public static final int btn_handler_message=0x7f090010;
+        public static final int btn_handler_runnable=0x7f09000f;
+        public static final int buttonAsync=0x7f09000d;
+        public static final int buttonBrCollectData=0x7f090009;
+        public static final int buttonBrCompoundOrder=0x7f090008;
+        public static final int buttonBrOrder=0x7f090007;
+        public static final int buttonBroadcastSingle=0x7f090005;
         public static final int buttonCustomNotification=0x7f090004;
-        public static final int buttonNotification=0x7f090003;
+        public static final int buttonImage=0x7f090013;
+        public static final int buttonNotification=0x7f090002;
+        public static final int buttonSimpleThread=0x7f09000c;
         public static final int buttonToast=0x7f090001;
-        public static final int imageView1=0x7f090007;
+        public static final int imageLoader=0x7f090012;
+        public static final int imageView1=0x7f090015;
+        public static final int progressBar=0x7f090014;
         public static final int textView1=0x7f090000;
-        public static final int textView2=0x7f090002;
-        public static final int textView3=0x7f090005;
+        public static final int textView2=0x7f090003;
+        public static final int textView3=0x7f090006;
+        public static final int textView4=0x7f09000a;
+        public static final int textView5=0x7f09000e;
+        public static final int textViewBr=0x7f09000b;
+        public static final int textViewLoader=0x7f090011;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_second_notification=0x7f030001;
-        public static final int custom_toast=0x7f030002;
+        public static final int activity_simple_thread=0x7f030002;
+        public static final int custom_toast=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -51,12 +67,28 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int broadcast=0x7f060009;
         public static final int broadcast_static=0x7f06000a;
+        public static final int btn_Async=0x7f060014;
+        public static final int btn_load_image=0x7f060012;
+        public static final int btn_toast=0x7f060013;
+        public static final int buttonBrCompound=0x7f06000b;
+        public static final int buttonBrData=0x7f06000d;
+        public static final int buttonBrOrder=0x7f06000c;
         public static final int custom_notification=0x7f060008;
         public static final int customized_toast=0x7f060003;
+        public static final int handler_runnable=0x7f06001a;
+        public static final int handlers=0x7f060019;
+        public static final int hello_world=0x7f060018;
         public static final int message=0x7f060004;
         public static final int notification=0x7f060005;
         public static final int notification_second_activity=0x7f060007;
+        public static final int simple_thread=0x7f060010;
+        public static final int simple_thread_desc=0x7f060011;
+        public static final int thread=0x7f06000f;
+        public static final int title_activity_async=0x7f060015;
+        public static final int title_activity_handler_message=0x7f060017;
+        public static final int title_activity_handler_runnable=0x7f060016;
         public static final int title_activity_notification_second=0x7f060006;
+        public static final int title_activity_simple_thread=0x7f06000e;
         public static final int user_notification=0x7f060002;
     }
     public static final class style {

@@ -1,0 +1,30 @@
+package com.android.course.handler;
+
+import com.android.course.viewelement.R;
+
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
+public class HandlerRunnable extends Activity {
+
+	private ImageView imageView;
+	private ProgressBar progressBar;
+	private Bitmap bitmap;
+	private final Handler handler = new Handler();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_simple_thread);
+		
+		imageView = (ImageView) findViewById(R.id.imageLoader);
+		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		
+		
+		
+	}
+}

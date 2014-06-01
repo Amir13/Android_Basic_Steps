@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.course.viewelement"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.android.course.viewelement.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.course.notification.NotificationSecondActivity"
+            android:label="@string/title_activity_notification_second" >
+        </activity>
+
+        <!-- BroadcastReceiver declared statically -->
+        <receiver
+            android:name="com.android.course.broadcast.MyBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="my.intent.identifier" >
+                </action>
+            </intent-filter>
+        </receiver>
+        <!-- Compound  BroadcastReceiver -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverTwo"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="my.intent.compound" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverThree"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="my.intent.compound" />
+            </intent-filter>
+        </receiver>
+        <!-- BroadcastReceiver with priority -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverTwo"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
+                <action android:name="intent.compound.order" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverThree"
+            android:exported="false" >
+            <intent-filter android:priority="8" >
+                <action android:name="intent.compound.order" />
+            </intent-filter>
+        </receiver>
+        <!-- BroadcastReceiver to collect data between them -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataOne"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataTwo"
+            android:exported="false" >
+            <intent-filter android:priority="3" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataThree"
+            android:exported="false" >
+            <intent-filter android:priority="5" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.android.course.thread.SimpleThreadActivity"
+            android:label="@string/title_activity_simple_thread" >
+        </activity>
+    </application>
+
+</manifest>

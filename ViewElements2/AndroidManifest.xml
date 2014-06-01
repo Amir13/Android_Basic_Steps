@@ -30,14 +30,85 @@
             android:label="@string/title_activity_notification_second" >
         </activity>
 
+        <!-- BroadcastReceiver declared statically -->
         <receiver
             android:name="com.android.course.broadcast.MyBroadcastReceiver"
             android:exported="false" >
-            <intent-filter> 
+            <intent-filter>
                 <action android:name="my.intent.identifier" >
                 </action>
             </intent-filter>
         </receiver>
+        <!-- Compound  BroadcastReceiver -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverTwo"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="my.intent.compound" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverThree"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="my.intent.compound" />
+            </intent-filter>
+        </receiver>
+        <!-- BroadcastReceiver with priority -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverTwo"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
+                <action android:name="intent.compound.order" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverThree"
+            android:exported="false" >
+            <intent-filter android:priority="8" >
+                <action android:name="intent.compound.order" />
+            </intent-filter>
+        </receiver>
+        <!-- BroadcastReceiver to collect data between them -->
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataOne"
+            android:exported="false" >
+            <intent-filter android:priority="1" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataTwo"
+            android:exported="false" >
+            <intent-filter android:priority="3" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.android.course.broadcast.ReceiverDataThree"
+            android:exported="false" >
+            <intent-filter android:priority="5" >
+                <action android:name="intent.compound.order.collect.data" />
+            </intent-filter>
+        </receiver>
+        <!-- Threads -->
+        <activity
+            android:name="com.android.course.thread.SimpleThreadActivity"
+            android:label="@string/title_activity_simple_thread" >
+        </activity>
+        <activity
+            android:name="com.android.course.thread.AsyncActivity"
+            android:label="@string/title_activity_async" >
+        </activity>
+        <!-- Handlers -->
+        <activity
+            android:name="com.android.course.handler.HandlerRunnable"
+            android:label="@string/title_activity_handler_runnable" >
+        </activity>
+        <activity
+            android:name="com.android.course.handler.HandlerMessage"
+            android:label="@string/title_activity_handler_message" >
+        </activity>
     </application>
 
 </manifest>

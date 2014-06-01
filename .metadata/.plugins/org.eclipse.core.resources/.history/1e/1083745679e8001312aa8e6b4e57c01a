@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewElements</string>
+    <string name="action_settings">Settings</string>
+    <string name="user_notification">User Notification</string>
+    <string name="customized_toast">Customized Toast</string>
+    <string name="message">This is a Layout used for customized a Toast and Notification</string>
+    <string name="notification">Notification</string>
+    <string name="title_activity_notification_second">NotificationSecondActivity</string>
+    <string name="notification_second_activity">This second activity was invoked from the notification bar.</string>
+    <string name="custom_notification">Custom Notification</string>
+    <string name="broadcast">BroadcastReceiver</string>
+    <string name="broadcast_static">Static</string>
+    <string name="buttonBrCompound">Compound</string>
+    <string name="buttonBrOrder">Order</string>
+    <string name="buttonBrData">Data</string>
+    <string name="title_activity_simple_thread">SimpleThreadActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="thread">Thread</string>
+    <string name="simple_thread">Simple</string>
+
+</resources>
