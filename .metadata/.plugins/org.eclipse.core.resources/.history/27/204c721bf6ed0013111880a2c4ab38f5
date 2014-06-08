@@ -1,0 +1,5 @@
+package course.android.course.network;
+
+public class NetworkJson extends Activity{
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;jobject&apos; in &apos;course.android.course.network.NetworkJson.JSONResponseHandler.handleResponse(...)&apos; to &apos;jobjectMap&apos;&#x0D;&#x0A;- Original project: &apos;ViewElements4&apos;&#x0D;&#x0A;- Original element: &apos;course.android.course.network.NetworkJson.JSONResponseHandler.handleResponse(HttpResponse).jobject&apos;&#x0D;&#x0A;- Renamed element: &apos;jobject&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;jobject&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;course.android.course.network{NetworkJson.java[NetworkJson[JSONResponseHandler~handleResponse~QHttpResponse;@jobject!1883!1951!1894!1900!QJSONObject;!0!false" name="jobjectMap" references="true" stamp="1402117000003" version="1.0"/>
+</session>

@@ -1,0 +1,88 @@
+package course.android.course.network;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.net.http.AndroidHttpClient;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+public class NetworkXml extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.activity_http_result);
+		new HttpRequestXml().execute();
+	}
+
+	private class HttpRequestXml extends AsyncTask<Void, Void, List<String>> {
+
+		private static final String USER_NAME = "aporter";
+
+		private static final String URL = "http://api.geonames.org/earthquakes?north=44.1&south=-9.9&east=-22.4&west=55.2&username="
+				+ USER_NAME;
+
+		AndroidHttpClient client = AndroidHttpClient.newInstance("userAgent");
+
+		@Override
+		protected List<String> doInBackground(Void... arg0) {
+
+			HttpGet request = new HttpGet(URL);
+			XMLResponseHandler responseHandler = new XMLResponseHandler();
+
+			return null;
+		}
+
+		protected void onPostExecute(List<String> result) {
+
+		}
+
+	}
+
+	private class XMLResponseHandler implements ResponseHandler<List<String>> {
+
+		private static final String MAGNITUDE_TAG = "magnitude";
+		private static final String LONGITUDE_TAG = "lng";
+		private static final String LATITUDE_TAG = "lat";
+		private String mLat, mLng, mMag;
+		private boolean mIsParsingLat, mIsParsingLng, mIsParsingMag;
+		private final List<String> mResults = new ArrayList<String>();
+
+		@Override
+		public List<String> handleResponse(HttpResponse httpResp)
+				throws ClientProtocolException, IOException {
+
+			// Create the Pull Parser
+			XmlPullParserFactory factory;
+			try {
+				factory = XmlPullParserFactory.newInstance();
+				XmlPullParser parser = factory.newPullParser();
+				
+				parser.setInput(new InputStreamReader(httpResp.getEntity().getContent()));
+				
+			} catch (XmlPullParserException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+
+			return null;
+		}
+
+	}
+
+}

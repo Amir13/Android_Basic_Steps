@@ -1,0 +1,58 @@
+package course.android.course.network;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.net.http.AndroidHttpClient;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+public class NetworkJson extends Activity{
+  
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_http_result);
+		
+	}
+	
+	private class HttpRequest extends AsyncTask<Void, Void, List<String>>{
+		private static final String USER_NAME = "aporter";
+
+		private static final String URL = "http://api.geonames.org/earthquakesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&username="
+				+ USER_NAME;
+
+		AndroidHttpClient androidClient = AndroidHttpClient.newInstance("userAgent");
+		
+		@Override
+		protected List<String> doInBackground(Void... params) {
+			
+			HttpGet request = new HttpGet(URL);
+			JSONResponseHandler handler = new JSONResponseHandler();
+			
+			
+			return null;
+		}
+		
+		
+	}
+	
+	private class JSONResponseHandler implements ResponseHandler<List<String>>{
+
+		@Override
+		public List<String> handleResponse(HttpResponse arg0)
+				throws ClientProtocolException, IOException {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+}

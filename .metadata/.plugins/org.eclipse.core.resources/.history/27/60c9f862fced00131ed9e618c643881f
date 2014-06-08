@@ -1,0 +1,31 @@
+package course.android.course.network;
+
+import java.util.List;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+public class NetworkJson extends Activity{
+  
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_http_result);
+		
+	}
+	
+	private class HttpRequest extends AsyncTask<Void, Void, List<String>>{
+
+		@Override
+		protected List<String> doInBackground(Void... params) {
+			return null;
+		}
+		
+		
+	}
+	
+	
+}

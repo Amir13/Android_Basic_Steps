@@ -1,0 +1,22 @@
+package com.android.course.notification;
+
+import com.android.course.main.MainActivity;
+
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+public class AlarmReceiver extends BroadcastReceiver {
+
+	private Intent notificationIntent;
+	private PendingIntent pendingIntent;
+
+	@Override
+	public void onReceive(Context context, Intent arg1) {
+		notificationIntent = new Intent(context, MainActivity.class);
+		pendingIntent = PendingIntent.getActivity(context, 0,
+				notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+	}
+
+}

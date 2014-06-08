@@ -1,0 +1,13 @@
+package course.android.course.network;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class NetworkJson extends Activity{
+  
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+}

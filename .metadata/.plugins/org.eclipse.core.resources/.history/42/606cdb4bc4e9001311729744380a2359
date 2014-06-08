@@ -1,0 +1,31 @@
+package com.android.course.notification;
+
+import com.android.course.main.MainActivity;
+
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+public class AlarmReceiver extends BroadcastReceiver {
+
+	private Intent notificationIntent;
+	private PendingIntent pendingIntent;
+
+	@Override
+	public void onReceive(Context context, Intent arg1) {
+		notificationIntent = new Intent(context, MainActivity.class);
+		pendingIntent = PendingIntent.getActivity(context, 0,
+				notificationIntent, Intent.FLAG_ACTIVITY_NEW_TASK);
+
+		Notification.Builder notificationBuilder = new Notification.Builder(
+				context)
+				.setTicker(
+						"This came from the alarm through a BroadcastReceiver")
+				.setSmallIcon(android.R.drawable.ic_popup_reminder)
+				.setAutoCancel(true).setContentTitle("Alert")
+				.setContentText("Your first Alert.").setContentIntent(pendingIntent);
+	}
+
+}

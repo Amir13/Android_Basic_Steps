@@ -1,0 +1,22 @@
+package course.android.course.network;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+public class NetworkXml extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.activity_http_result);
+		new HttpRequestXml().execute();
+	}
+	
+	private class HttpRequestXml extends AsyncTask<Void, Void, List<String>>{
+		
+		
+	}	
+}

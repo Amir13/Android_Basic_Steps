@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".NetworkSocket" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/http_result" />
+
+    <ScrollView
+        android:id="@+id/scrollResult"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="0.51" >
+
+        <TextView
+            android:id="@+id/textViewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:textSize="24sp" 
+            android:text="@string/textViewRequest"/>
+    </ScrollView>
+
+</LinearLayout>

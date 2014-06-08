@@ -1,0 +1,113 @@
+package course.android.course.network;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import android.app.Activity;
+import android.net.http.AndroidHttpClient;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.app.ListActivity;
+
+import com.course.android.R;
+
+public class NetworkJson extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_http_result);
+
+	}
+
+	private class HttpRequest extends AsyncTask<Void, Void, List<String>> {
+		private static final String USER_NAME = "aporter";
+
+		private static final String URL = "http://api.geonames.org/earthquakesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&username="
+				+ USER_NAME;
+
+		AndroidHttpClient androidClient = AndroidHttpClient
+				.newInstance("userAgent");
+
+		@Override
+		protected List<String> doInBackground(Void... params) {
+
+			HttpGet request = new HttpGet(URL);
+			JSONResponseHandler handler = new JSONResponseHandler();
+
+			try {
+				return androidClient.execute(request, handler);
+			} catch (ClientProtocolException e) {
+				Log.e("HttpRequest", e.getMessage());
+			} catch (IOException e) {
+				Log.e("HttpRequest", e.getMessage());
+			}
+
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(List<String> result) {
+			if (androidClient != null) {
+				androidClient.close();
+				setL
+			}
+		}
+
+	}
+
+	private class JSONResponseHandler implements ResponseHandler<List<String>> {
+		private static final String LONGITUDE_TAG = "lng";
+		private static final String LATITUDE_TAG = "lat";
+		private static final String MAGNITUDE_TAG = "magnitude";
+		private static final String EARTHQUAKE_TAG = "earthquakes";
+
+		@Override
+		public List<String> handleResponse(HttpResponse response)
+				throws ClientProtocolException, IOException {
+
+			List<String> result = new ArrayList<String>();
+			String jresp = new BasicResponseHandler().handleResponse(response);
+
+			try {
+				// Get top-level JSON Object - a Map
+				JSONObject jobjectMap = (JSONObject) new JSONTokener(jresp)
+						.nextValue();
+
+				// Extract value of "earthquakes" key -- a List
+				JSONArray earthquake = jobjectMap.getJSONArray(EARTHQUAKE_TAG);
+
+				for (int i = 0; i < earthquake.length(); i++) {
+					// Get element
+					JSONObject earthquakeElement = (JSONObject) earthquake
+							.get(i);
+
+					result.add(MAGNITUDE_TAG + ":"
+							+ earthquakeElement.get(MAGNITUDE_TAG) + ","
+							+ LATITUDE_TAG + ":"
+							+ earthquakeElement.getString(LATITUDE_TAG) + ","
+							+ LONGITUDE_TAG + ":"
+							+ earthquakeElement.get(LONGITUDE_TAG));
+				}
+
+			} catch (JSONException e) {
+				Log.e("JSONResponseHandler", e.getMessage());
+			}
+
+			return result;
+		}
+
+	}
+}

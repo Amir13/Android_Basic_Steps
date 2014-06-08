@@ -1,0 +1,54 @@
+package com.android.course.main;
+
+import com.android.course.notification.AlarmReceiver;
+import com.example.viewelements3.R;
+
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+
+	private AlarmManager alarmManager;
+	private Intent alarmReceiver;
+	private PendingIntent pendingIntent;
+
+	private static final long INITIAL_ALARM_DELAY = 4 * 60 * 1000L;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		// Get the AlarmManager Service
+		alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+		// Create PendingIntent to start the AlarmReceiver
+		alarmReceiver = new Intent(getApplicationContext(), AlarmReceiver.class);
+		pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0,
+				alarmReceiver, 0);
+
+		final Button btnSingle = (Button) findViewById(R.id.btnSingle);
+		btnSingle.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				alarmManager.set(AlarmManager.RTC_WAKEUP,
+						System.currentTimeMillis() + INITIAL_ALARM_DELAY,
+						pendingIntent);
+				
+				Toast.makeText(getApplicationContext(), "Single Alarm Set",
+						Toast.LENGTH_LONG).show();
+			}
+		});
+
+	}
+
+}
