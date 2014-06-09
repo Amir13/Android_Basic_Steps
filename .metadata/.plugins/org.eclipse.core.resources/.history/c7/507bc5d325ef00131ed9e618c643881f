@@ -1,0 +1,10 @@
+package course.android.graphics;
+
+import android.R;
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ShapeXml extends Activity{
+
+	
+}

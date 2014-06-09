@@ -1,0 +1,27 @@
+package course.android.graphics;
+
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+
+public class ShapeProgramatically extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_shape_progra);
+		
+		int width = (int) getResources().getDimension(R.dimen.shape_width);
+		int height = (int) getResources().getDimension(R.dimen.shape_height);
+		int padding = (int) getResources().getDimension(R.dimen.shape_padding);
+		
+		// Get container View
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout_shape_pro);
+		
+		
+	}
+	
+}

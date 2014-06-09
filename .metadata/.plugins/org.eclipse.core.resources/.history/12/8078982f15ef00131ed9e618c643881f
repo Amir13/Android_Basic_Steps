@@ -1,0 +1,6 @@
+package course.android.graphics;
+
+public class GraphicsXml extends Activity{
+
+	
+}

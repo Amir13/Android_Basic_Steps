@@ -1,0 +1,20 @@
+package course.android.canvas;
+
+public class MyCoords {
+	
+	float x;
+	float y;
+	
+	public MyCoords(float x, float y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	synchronized MyCoords move( MyCoords c){
+		return new MyCoords();
+		
+	}
+	
+
+
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:drawable="@drawable/shape_left"
+        android:left="125dp"/>
+    <item android:drawable="@drawable/shape_right"
+        android:right="125dp"/>
+    <item android:drawable="@drawable/shape_right"
+        android:op="125dp"/>
+    
+</transition>

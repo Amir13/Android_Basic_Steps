@@ -1,0 +1,14 @@
+1402235709186	Rename package 'course.android.course.network'
+1402235757652	Rename package 'com.android.course.main'
+1402236235922	Rename resource 'graphicsxml.xml'
+1402236431998	Rename resource 'graphics_progra.xml'
+1402236439406	Rename resource 'graphics_xml.xml'
+1402237712909	Delete element
+1402242343114	Extracts string 'Programmatically' into R.string.programmatically
+1402242390562	Extracts string 'XML' into R.string.xml
+1402249092537	Rename local variable 'view'
+1402249100713	Rename local variable 'view'
+1402256814917	Rename local variable 'dy'
+1402259877154	Rename field 'currentCoords'
+1402263118619	Extracts string 'Button' into R.string.surface
+1402271664012	Rename type 'Transition'

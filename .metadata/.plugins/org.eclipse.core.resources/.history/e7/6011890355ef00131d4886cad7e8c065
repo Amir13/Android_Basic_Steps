@@ -1,0 +1,12 @@
+package course.android.canvas;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MySurface extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+}

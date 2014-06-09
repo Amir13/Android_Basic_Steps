@@ -9,7 +9,18 @@
     <string name="title_activity_android_http">NetworkAndroidHttpClient</string>
     <string name="title_activity_android_json">NetworkAndroidJson</string>
     <string name="title_activity_android_xml">NetworkAndroidXml</string>
+    <string name="title_activity_android_graphics">Graphics</string>
+    <string name="title_activity_android_shapes">Shapes</string>
+    <string name="title_activity_android_shapesXml">Shapes</string>
+    <string name="title_activity_android_canvas">Canvas</string>
+    <string name="title_activity_android_surface">Surface</string>
+    <string name="title_activity_android_transition">Transition</string>
+    <string name="title_activity_android_animation">Animation</string>
+    <string name="title_activity_android_animation2">Animation with Graphs</string>
     <string name="http_result">This is the result from http request.</string>
     <string name="textViewRequest">Doing the request.....</string>
+    <string name="programmatically">Programmatically</string>
+    <string name="xml">XML</string>
+    <string name="surface">surface</string>
 
 </resources>

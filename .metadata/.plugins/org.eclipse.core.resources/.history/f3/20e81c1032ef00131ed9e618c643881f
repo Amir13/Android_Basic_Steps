@@ -1,0 +1,45 @@
+package course.android.graphics;
+
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+
+public class ShapeProgramatically extends Activity{
+	int alpha = 127;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_shape_progra);
+		
+		int width = (int) getResources().getDimension(R.dimen.shape_width);
+		int height = (int) getResources().getDimension(R.dimen.shape_height);
+		int padding = (int) getResources().getDimension(R.dimen.shape_padding);
+		
+		// Get container View
+		RelativeLayout layout = (RelativeLayout) findViewById(R.id.layout_shape_pro);
+		
+		//Create Left Shape
+		ShapeDrawable left = new ShapeDrawable(new OvalShape());
+		left.getPaint().setColor(Color.CYAN);
+		left.setIntrinsicWidth(width);
+		left.setIntrinsicHeight(height);
+		left.setAlpha(alpha);
+
+		//Create Right Shape
+		ShapeDrawable left = new ShapeDrawable(new OvalShape());
+		left.getPaint().setColor(Color.CYAN);
+		left.setIntrinsicWidth(width);
+		left.setIntrinsicHeight(height);
+		left.setAlpha(alpha);
+		
+		
+	}
+	
+}

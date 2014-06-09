@@ -1,0 +1,25 @@
+package course.android.animation;
+
+import android.app.Activity;
+import android.graphics.drawable.TransitionDrawable;
+import android.os.Bundle;
+
+import com.course.android.R;
+
+public class TransitionView extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.activity_animation_transition);
+		
+		TransitionDrawable transition = (TransitionDrawable)getResources().getDrawable(R.drawable.transition);
+		
+		transition.setCrossFadeEnabled(true);
+		
+		((ImageView)  findViewById(R.id.imageViewTrans))
+		
+		
+	}
+}

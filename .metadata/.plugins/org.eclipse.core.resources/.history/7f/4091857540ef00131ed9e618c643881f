@@ -1,0 +1,22 @@
+package course.android.canvas;
+
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.RelativeLayout;
+
+public class SimpleCanvas extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_simple_canvas);
+		
+		final RelativeLayout layout = findViewById(R.id.simple_canvas);
+		
+		
+	}
+	
+}

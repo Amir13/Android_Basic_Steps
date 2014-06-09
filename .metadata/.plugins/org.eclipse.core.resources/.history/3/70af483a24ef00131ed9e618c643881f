@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/network" />
+
+    <Button
+        android:id="@+id/btnSocket"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="Socket" />
+
+    <Button
+        android:id="@+id/btnHttp"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnSocket"
+        android:layout_alignBottom="@+id/btnSocket"
+        android:layout_toRightOf="@+id/btnSocket"
+        android:text="HttpUrlConnection" />
+
+    <Button
+        android:id="@+id/btnAndroid"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnSocket"
+        android:layout_below="@+id/btnSocket"
+        android:text="AndroidHttpClient" />
+
+    <Button
+        android:id="@+id/btnJson"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnAndroid"
+        android:layout_toRightOf="@+id/btnAndroid"
+        android:text="JSON" />
+
+    <Button
+        android:id="@+id/btnXml"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnJson"
+        android:layout_alignBottom="@+id/btnJson"
+        android:layout_toRightOf="@+id/btnJson"
+        android:text="@string/xml" />
+
+    <Button
+        android:id="@+id/btnGraphXml"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:text="@string/xml" />
+
+    <Button
+        android:id="@+id/btnGraphProg"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnGraphXml"
+        android:layout_alignBottom="@+id/btnGraphXml"
+        android:layout_toRightOf="@+id/textView2"
+        android:text="@string/programmatically" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAndroid"
+        android:layout_below="@+id/btnAndroid"
+        android:text="@string/title_activity_android_graphics" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnGraphXml"
+        android:layout_below="@+id/btnGraphXml"
+        android:text="@string/title_activity_android_shapes" />
+
+    <Button
+        android:id="@+id/btnGraphXml"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:text="@string/xml" />
+
+    <Button
+        android:id="@+id/btnGraphProgra"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnGraphXml"
+        android:layout_alignBottom="@+id/btnGraphXml"
+        android:layout_alignLeft="@+id/btnGraphProg"
+        android:text="@string/programmatically" />
+
+</RelativeLayout>

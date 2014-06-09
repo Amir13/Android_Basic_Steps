@@ -1,0 +1,32 @@
+package course.android.animation;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
+public class GraphAnimation extends Activity{
+	private ImageView imageView;
+	private Animation animation;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_animation_frame);
+		
+		imageView = (ImageView) findViewById(R.id.animation_frame);
+		animation = AnimationUtils.loadAnimation(getApplicationContext(), R.attr)
+		
+	}
+	
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		if (hasFocus) {
+			imageView.startAnimation(animation);
+		}
+	}
+}

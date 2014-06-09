@@ -1,0 +1,18 @@
+package course.android.animation;
+
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class TransitionView extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.id.action_settings);
+		
+	}
+}

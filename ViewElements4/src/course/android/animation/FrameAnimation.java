@@ -1,0 +1,43 @@
+package course.android.animation;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Bundle;
+import android.widget.ImageView;
+
+public class FrameAnimation extends Activity{
+	private AnimationDrawable animation;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_animation_frame);
+		
+		ImageView imageView = (ImageView) findViewById(R.id.animation_frame);
+		
+		imageView.setBackgroundResource(R.drawable.animation);
+		
+		animation = (AnimationDrawable) imageView.getBackground();
+		
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		if(animation.isRunning()){
+			animation.stop();
+		}
+	}
+	
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		if(hasFocus)
+			animation.start();
+	}
+}
+
+
+
