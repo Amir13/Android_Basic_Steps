@@ -11,7 +11,9 @@ import com.course.android.R;
 
 import course.android.animation.FrameAnimation;
 import course.android.animation.GraphAnimation;
+import course.android.animation.PropertyAnim;
 import course.android.animation.TransitionView;
+import course.android.animation.ValueAnim;
 import course.android.canvas.MySurface;
 import course.android.canvas.SimpleCanvas;
 import course.android.graphics.GraphicsProgrammatically;
@@ -207,6 +209,31 @@ public class MainActivity extends Activity {
 				
 				Intent intent = new Intent(getApplicationContext(),
 						GraphAnimation.class);
+				startActivity(intent);
+				
+			}
+		});
+		final Button btnValue = (Button) findViewById(R.id.btnValue);
+		btnValue.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getApplicationContext(),
+						ValueAnim.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnProperty = (Button) findViewById(R.id.btnProperty);
+		btnProperty.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getApplicationContext(),
+						PropertyAnim.class);
 				startActivity(intent);
 				
 			}

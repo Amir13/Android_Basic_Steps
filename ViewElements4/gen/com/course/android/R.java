@@ -40,35 +40,38 @@ public final class R {
         public static final int transition=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001d;
+        public static final int action_settings=0x7f090020;
         public static final int animation_frame=0x7f090000;
         public static final int btnAndroid=0x7f090009;
-        public static final int btnAnimation=0x7f090016;
-        public static final int btnAnimation2=0x7f090017;
+        public static final int btnAnimation=0x7f090017;
+        public static final int btnAnimation2=0x7f090016;
         public static final int btnCanvas=0x7f090013;
         public static final int btnGraphProg=0x7f09000e;
         public static final int btnGraphXml=0x7f09000c;
         public static final int btnHttp=0x7f090008;
         public static final int btnJson=0x7f09000a;
+        public static final int btnProperty=0x7f09001a;
         public static final int btnShapeProgra=0x7f090011;
         public static final int btnShapeXml=0x7f090010;
         public static final int btnSocket=0x7f090007;
         public static final int btnSurface=0x7f090014;
         public static final int btnTransition=0x7f090015;
+        public static final int btnValue=0x7f090019;
         public static final int btnXml=0x7f09000b;
-        public static final int image=0x7f09001c;
+        public static final int image=0x7f09001f;
         public static final int imageView1=0x7f090003;
-        public static final int imageView2=0x7f09001a;
+        public static final int imageView2=0x7f09001d;
         public static final int imageViewTrans=0x7f090001;
         public static final int layout_frame=0x7f090002;
-        public static final int layout_shape_pro=0x7f090018;
-        public static final int layout_shape_progra=0x7f090019;
+        public static final int layout_shape_pro=0x7f09001b;
+        public static final int layout_shape_progra=0x7f09001c;
         public static final int scrollResult=0x7f090004;
-        public static final int simple_canvas=0x7f09001b;
+        public static final int simple_canvas=0x7f09001e;
         public static final int textView1=0x7f090006;
         public static final int textView2=0x7f09000d;
         public static final int textView3=0x7f09000f;
         public static final int textView4=0x7f090012;
+        public static final int textView5=0x7f090018;
         public static final int textViewResult=0x7f090005;
     }
     public static final class layout {
@@ -89,25 +92,27 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
-        public static final int http_result=0x7f060010;
+        public static final int http_result=0x7f060012;
         public static final int network=0x7f060002;
-        public static final int programmatically=0x7f060012;
-        public static final int surface=0x7f060014;
-        public static final int textViewRequest=0x7f060011;
+        public static final int programmatically=0x7f060014;
+        public static final int surface=0x7f060016;
+        public static final int textViewRequest=0x7f060013;
         public static final int title_activity_android_animation=0x7f06000e;
         public static final int title_activity_android_animation2=0x7f06000f;
         public static final int title_activity_android_canvas=0x7f06000b;
         public static final int title_activity_android_graphics=0x7f060008;
         public static final int title_activity_android_http=0x7f060005;
         public static final int title_activity_android_json=0x7f060006;
+        public static final int title_activity_android_property_animation=0x7f060011;
         public static final int title_activity_android_shapes=0x7f060009;
         public static final int title_activity_android_shapesXml=0x7f06000a;
         public static final int title_activity_android_surface=0x7f06000c;
         public static final int title_activity_android_transition=0x7f06000d;
+        public static final int title_activity_android_value_animation=0x7f060010;
         public static final int title_activity_android_xml=0x7f060007;
         public static final int title_activity_http_result=0x7f060003;
         public static final int title_activity_http_url_connection=0x7f060004;
-        public static final int xml=0x7f060013;
+        public static final int xml=0x7f060015;
     }
     public static final class style {
         /** 

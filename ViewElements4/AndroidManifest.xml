@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="15"
+        android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" >
@@ -80,6 +80,14 @@
         <activity
             android:name="course.android.animation.GraphAnimation"
             android:label="@string/title_activity_android_animation2" >
+        </activity>
+        <activity
+            android:name="course.android.animation.ValueAnim"
+            android:label="@string/title_activity_android_value_animation" >
+        </activity>
+        <activity
+            android:name="course.android.animation.PropertyAnim"
+            android:label="@string/title_activity_android_property_animation" >
         </activity>
         
     </application>

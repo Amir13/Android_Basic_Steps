@@ -17,6 +17,8 @@
     <string name="title_activity_android_transition">Transition</string>
     <string name="title_activity_android_animation">Animation</string>
     <string name="title_activity_android_animation2">Animation with Graphs</string>
+    <string name="title_activity_android_value_animation">Value Animation</string>
+    <string name="title_activity_android_property_animation">Property Animation</string>
     <string name="http_result">This is the result from http request.</string>
     <string name="textViewRequest">Doing the request.....</string>
     <string name="programmatically">Programmatically</string>

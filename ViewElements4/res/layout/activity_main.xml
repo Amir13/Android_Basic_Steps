@@ -151,15 +151,6 @@
         android:text="@string/title_activity_android_transition" />
 
     <Button
-        android:id="@+id/btnAnimation"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnCanvas"
-        android:layout_below="@+id/btnCanvas"
-        android:text="@string/title_activity_android_animation" />
-
-    <Button
         android:id="@+id/btnAnimation2"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -167,5 +158,41 @@
         android:layout_alignTop="@+id/btnAnimation"
         android:layout_toRightOf="@+id/btnAnimation"
         android:text="@string/title_activity_android_animation2" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnCanvas"
+        android:layout_below="@+id/btnCanvas"
+        android:text="@string/title_activity_android_animation" />
+
+    <Button
+        android:id="@+id/btnAnimation"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:text="@string/title_activity_android_animation" />
+
+    <Button
+        android:id="@+id/btnValue"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAnimation"
+        android:layout_below="@+id/btnAnimation"
+        android:text="@string/title_activity_android_value_animation" />
+
+    <Button
+        android:id="@+id/btnProperty"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnValue"
+        android:layout_alignBottom="@+id/btnValue"
+        android:layout_toRightOf="@+id/btnAndroid"
+        android:text="@string/title_activity_android_property_animation" />
 
 </RelativeLayout>

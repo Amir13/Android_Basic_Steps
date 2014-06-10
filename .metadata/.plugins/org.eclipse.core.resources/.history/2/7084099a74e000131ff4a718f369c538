@@ -1,5 +1,0 @@
-package course.examples.Fragments.DynamicLayout;
-
-public interface ListFragment {
-
-}

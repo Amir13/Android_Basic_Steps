@@ -1,7 +1,5 @@
 package course.android.graphics;
 
-import com.course.android.R;
-
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
@@ -9,7 +7,8 @@ import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
+
+import com.course.android.R;
 
 public class ShapeProgramatically extends Activity {
 	int alpha = 127;
