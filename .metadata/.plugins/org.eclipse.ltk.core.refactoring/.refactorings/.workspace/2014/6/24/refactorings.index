@@ -10,3 +10,5 @@
 1402277238504	Delete resource 'GraphicsFrameAnimation'
 1402279880725	Delete resource 'GraphicsTweenAnimation'
 1402362368844	Delete resource 'GraphicsValueAnimator'
+1402370092294	Delete resource 'GraphicsViewPropertyAnimator'
+1402370101730	Delete resource 'FragmentDynamicLayoutWithActionBar'
