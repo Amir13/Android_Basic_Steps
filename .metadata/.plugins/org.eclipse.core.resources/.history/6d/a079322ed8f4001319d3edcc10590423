@@ -1,0 +1,193 @@
+package com.android.multimedia;
+
+import java.io.IOException;
+import java.util.List;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.graphics.PixelFormat;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
+import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.PreviewCallback;
+import android.hardware.Camera.ShutterCallback;
+import android.hardware.Camera.Size;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+
+public class VideoRecorderActivity extends Activity {
+
+	protected static final int PREVIEW_PAUSE = 2000;
+	private Camera camera;
+	private LinearLayout layout;
+
+	private enum PreviewState {
+		RUNNING, STOPPED
+	};
+
+	private PreviewState previewState = PreviewState.STOPPED;
+	private SurfaceHolder surfaceHolder;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Setup application window
+		getWindow().setFormat(PixelFormat.TRANSLUCENT);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		setContentView(R.layout.activity_video_recorder);
+
+		// Get camera instance
+		camera = getCamera();
+
+		// Setup touch listener for taking pictures
+		layout = (LinearLayout) findViewById(R.id.layout);
+		layout.setEnabled(true);
+		layout.setOnTouchListener(new OnTouchListener() {
+
+			@Override
+			public boolean onTouch(View arg0, MotionEvent event) {
+				if (event.getActionMasked() == MotionEvent.ACTION_UP) {
+					camera.takePicture(shutterCallback, null, pictureCallback);
+				}
+				return true;
+			}
+		});
+
+		// Setup SurfaceView for previewing camera image
+
+		SurfaceView surface = (SurfaceView) findViewById(R.id.surfaceView);
+		surfaceHolder = surface.getHolder();
+		surfaceHolder.addCallback(surfaceHolderCallback);
+	}
+
+	private Camera getCamera() {
+
+		// Returns first back-facing camera
+		// May take a long time to complete
+		// Consider moving this to an AsyncTask
+		camera = Camera.open();
+
+		if (camera == null) {
+			finish();
+		}
+
+		return camera;
+	}
+
+	// System Shutter Sound
+	Camera.ShutterCallback shutterCallback = new ShutterCallback() {
+
+		@Override
+		public void onShutter() {
+			previewState = PreviewState.STOPPED;
+		}
+	};
+
+	// Freeze the Preview for a few seconds and then restart the preview
+	Camera.PictureCallback pictureCallback = new PictureCallback() {
+
+		// This is the method to save the photo
+		@Override
+		public void onPictureTaken(byte[] arg0, Camera arg1) {
+			try {
+				// Give the user some time to view the image
+				Thread.sleep(PREVIEW_PAUSE);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			// Would normally save the image here
+
+			// Restart the preview
+			camera.startPreview();
+			previewState = PreviewState.RUNNING;
+		}
+	};
+
+	SurfaceHolder.Callback shutter = new SurfaceHolder.Callback() {
+
+		@Override
+		public void surfaceCreated(SurfaceHolder arg0) {
+			try {
+				camera.setPreviewDisplay(arg0);
+				camera.startPreview();
+				previewState = PreviewState.RUNNING;
+				Log.i("VideoRecorderActivity", "First method");
+			} catch (IOException e) {
+				Log.e("VideoRecorderActivity", e.getMessage());
+			}
+
+		}
+
+		@Override
+		public void surfaceChanged(SurfaceHolder holder, int format, int width,
+				int height) {
+			// Shutdown current preview
+			if (surfaceHolder.getSurface() == null) {
+				return;
+			}
+
+			layout.setEnabled(true);
+
+			if (previewState == PreviewState.RUNNING) {
+				camera.stopPreview();
+				previewState = PreviewState.STOPPED;
+			}
+
+			// Change camera parameters
+			Camera.Parameters p = camera.getParameters();
+
+			// Find closest supported preview size
+			Camera.Size bestSize = findBestSize(p, width, height);
+			p.setPreviewSize(bestSize.width, bestSize.height);
+			camera.setParameters(p);
+
+			// Restart preview
+			try {
+				camera.setPreviewDisplay(holder);
+
+				camera.startPreview();
+				previewState = PreviewState.RUNNING;
+				layout.setEnabled(true);
+			} catch (IOException e) {
+				Log.e("VideoRecorderActivity", e.getMessage());
+			} catch (RuntimeException e) {
+				Log.e("VideoRecorderActivity", e.getMessage());
+			}
+		}
+
+		@Override
+		public void surfaceDestroyed(SurfaceHolder arg0) {
+
+		}
+	};
+
+	private Size findBestSize(Parameters p, int width, int height) {
+
+		List<Camera.Size> supportedSizes = p.getSupportedPreviewSizes();
+
+		Camera.Size bestSize = supportedSizes.remove(0);
+
+		for (Size size : supportedSizes) {
+			if ((size.width * size.height) > (bestSize.width * bestSize.height)) {
+				bestSize = size;
+			}
+		}
+
+		return bestSize;
+	}
+
+}

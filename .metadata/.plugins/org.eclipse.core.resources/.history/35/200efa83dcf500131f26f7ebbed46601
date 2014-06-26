@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btnMagnetometer"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnSensorAcc"
+        android:layout_below="@+id/btnSensorAcc"
+        android:layout_marginTop="18dp"
+        android:text="Magnetometer" />
+
+    <Button
+        android:id="@+id/btnSensorAcc"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="16dp"
+        android:text="Accelometer" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnSensorAcc"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:text="Sensors"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnMagnetometer"
+        android:layout_below="@+id/btnMagnetometer"
+        android:layout_marginTop="36dp"
+        android:text="Location" />
+
+    <Button
+        android:id="@+id/btnLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="17dp"
+        android:text="Location" />
+
+    <Button
+        android:id="@+id/btnLocation2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_alignLeft="@+id/btnLocation"
+        android:layout_below="@+id/btnLocation"
+        android:layout_marginTop="16dp"
+        android:text="Location" />
+
+</RelativeLayout>

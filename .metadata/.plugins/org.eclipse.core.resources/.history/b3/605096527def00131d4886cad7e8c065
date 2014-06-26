@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.course.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="course.android.main.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="course.android.network.NetworkSocket"
+            android:label="@string/title_activity_http_result" >
+        </activity>
+        <activity
+            android:name="course.android.network.NetworkHttpUrlConnection"
+            android:label="@string/title_activity_http_url_connection" >
+        </activity>
+        <activity
+            android:name="course.android.network.NetworkAndroidHttpClient"
+            android:label="@string/title_activity_android_http" >
+        </activity>
+        <activity
+            android:name="course.android.network.NetworkJson"
+            android:label="@string/title_activity_android_json" >
+        </activity>
+        <activity
+            android:name="course.android.network.NetworkXml"
+            android:label="@string/title_activity_android_xml" >
+        </activity>
+        <activity
+            android:name="course.android.graphics.GraphicsXml"
+            android:label="@string/title_activity_android_graphics" >
+        </activity>
+        <activity
+            android:name="course.android.graphics.GraphicsProgrammatically"
+            android:label="@string/title_activity_android_graphics" >
+        </activity>
+        <activity
+            android:name="course.android.graphics.ShapeXml"
+            android:label="@string/title_activity_android_shapes" >
+        </activity>
+        <activity
+            android:name="course.android.graphics.ShapeProgramatically"
+            android:label="@string/title_activity_android_shapesXml" >
+        </activity>
+        <activity
+            android:name="course.android.canvas.SimpleCanvas"
+            android:label="@string/title_activity_android_canvas" >
+        </activity>
+        <activity
+            android:name="course.android.canvas.MySurface"
+            android:label="@string/title_activity_android_surface" >
+        </activity>
+        <activity
+            android:name="course.android.animation.TransitionView"
+            android:label="@string/title_activity_android_transition" >
+        </activity>
+        <activity
+            android:name="course.android.animation.FrameAnimation"
+            android:label="@string/title_activity_android_animation" >
+        </activity>
+        <activity
+            android:name="course.android.animation.GraphAnimation"
+            android:label="@string/title_activity_android_animation2" >
+        </activity>
+        <activity
+            android:name="course.android.animation.ValueAnim"
+            android:label="@string/title_activity_android_value_animation" >
+        </activity>
+        <activity
+            android:name="course.android.animation.GraphAnimation"
+            android:label="@string/title_activity_android_property_animation" >
+        </activity>
+        
+    </application>
+
+</manifest>

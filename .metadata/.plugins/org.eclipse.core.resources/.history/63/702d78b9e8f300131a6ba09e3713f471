@@ -1,0 +1,29 @@
+package com.android.course.touch;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.ViewFlipper;
+
+public class GestureActivity extends Activity{
+
+	private int currentLayoutState;
+	private ViewFlipper flipper;
+	private TextView textView1, textView2;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_gesture);
+		
+		currentLayoutState = 0;
+		
+		flipper = (ViewFlipper) findViewById(R.id.view_flipper);
+		textView1 = (TextView) findViewById(R.id.textView1);
+		textView2 = (TextView) findViewById(R.id.textView2);
+		
+	}
+	
+}

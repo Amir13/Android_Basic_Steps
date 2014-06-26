@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="@+id/pref_screen" >
+
+    <EditTextPreference
+        android:dialogMessage="Enter Your User Name"
+        android:dialogTitle="Change Preference User Name"
+        android:key="user_name"
+        android:negativeButtonText="Cancel"
+        android:positiveButtonText="Submit"
+        android:title="User Name">
+    </EditTextPreference>
+    
+    <EditTextPreference
+        android:dialogTitle="New Preference"
+        android:dialogMessage="Enter Your New Value"
+        android:key="pref_value"
+        android:negativeButtonText="Cancel"
+        android:positiveButtonText="Submit"
+        android:title="Another Preference">
+    </EditTextPreference>
+
+</PreferenceScreen>

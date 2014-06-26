@@ -1,0 +1,28 @@
+package com.android.course.touch;
+
+import java.util.Random;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.widget.FrameLayout;
+
+public class GestureBuilderActivity extends Activity {
+
+	private FrameLayout frame;
+	private int bgColor = 0;
+	private int firstColor, startColor = Color.GRAY;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_gesture_builder);
+
+		frame = (FrameLayout) findViewById(R.id.frame);
+		firstColor = bgColor = new Random().nextInt(0xFFFFFF) | 0xFF000000;
+		frame.setBackground(startColor);
+	}
+
+}

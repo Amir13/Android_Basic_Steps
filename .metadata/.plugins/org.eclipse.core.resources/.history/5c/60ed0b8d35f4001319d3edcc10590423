@@ -1,0 +1,30 @@
+package com.android.multimedia;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class AudioManagerActivity extends Activity{
+
+	private int volume = 6;
+	private AudioManager audioManager;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_audio_manager);
+		
+		// Get reference to the AudioManager		
+		audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+		
+		// Displays current volume level		
+		final TextView tv = (TextView) findViewById(R.id.textView1);
+		tv.setText(String.valueOf(volume));
+		
+		
+	}
+}

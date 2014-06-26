@@ -1,0 +1,5 @@
+package com.android.multimedia;
+
+public class AudioManagerActivity extends Activity{
+
+}

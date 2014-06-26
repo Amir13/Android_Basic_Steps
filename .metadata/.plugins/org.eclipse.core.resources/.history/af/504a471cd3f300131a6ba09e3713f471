@@ -1,0 +1,183 @@
+package com.android.course.touch;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Random;
+
+import com.android.course.main.R;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.widget.FrameLayout;
+
+public class TouchActivity extends Activity {
+
+	// Assume no more than 20 simultaneous touches
+	private final static int MAX_TOUCHES = 20;
+	// Pool of MarkerViews
+	final private static LinkedList<CircleView> inactiveCirclesList = new LinkedList<CircleView>();
+
+	// Set of MarkerViews currently visible on the display
+	final private static Map<Integer, CircleView> activeCircleMap = new HashMap<Integer, CircleView>();
+
+	final private static int MIN_DISTANCE = 2;
+	
+	private FrameLayout frame;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_touch);
+		
+		frame = (FrameLayout) findViewById(R.id.touch_frame);
+		
+		for (int i = 0; i < MAX_TOUCHES; i++) {
+			inactiveCirclesList.add(new CircleView(this, -1, -1));
+		}
+		
+		frame.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View view, MotionEvent event) {
+				
+				switch (event.getActionMasked()) {
+				//Show new Circle
+				case MotionEvent.ACTION_DOWN:
+				case MotionEvent.ACTION_POINTER_DOWN:{
+					
+					int pointerIndex = event.getActionIndex();
+					int pointerId = event.getPointerId(pointerIndex);
+					
+					CircleView circle = inactiveCirclesList.remove();
+					
+					if(circle != null){
+						activeCircleMap.put(pointerId, circle);
+						
+						circle.setcX(event.getX(pointerIndex));
+						circle.setcY(event.getY(pointerIndex));
+						
+						updateTouches(activeCircleMap.size());
+						frame.addView(circle);
+					}
+					
+					
+					break;
+				}
+					//Move all current active Circles
+				case MotionEvent.ACTION_UP:
+				case MotionEvent.ACTION_POINTER_UP:{
+					
+					int pointerIndex = event.getActionIndex();
+					int pointerId = event.getPointerId(pointerIndex);
+					
+					CircleView circle = activeCircleMap.remove(pointerId);
+					
+					if (circle != null) {
+						
+						inactiveCirclesList.add(circle);
+						
+						updateTouches(activeCircleMap.size());
+						
+						frame.removeView(circle);
+					}
+					
+					break;
+				}
+				
+				case MotionEvent.ACTION_MOVE:
+					
+					for (int i = 0; i < event.getPointerCount(); i++) {
+						
+						int ID= event.getPointerId(i);
+						
+						CircleView circle = activeCircleMap.get(ID);
+						if(circle != null){
+							// Redraw only if finger has travel a minimum distance
+							if (Math.abs(circle.getcX() - event.getX(i) > )) {
+								
+							}
+							
+						}
+						
+					}
+					
+					break;
+					
+				default:
+					Log.i("TouchActivity", "Unhandled action");
+					break;
+				}
+				return true;
+			}
+			
+			
+			//update number of touches on each active CircleView
+			private void updateTouches(int activeCircles){
+				for (CircleView circle : activeCircleMap.values() ) {
+					circle.setTouches(activeCircles);
+				}
+			}
+//			
+			
+		});
+		
+	}
+
+	private class CircleView extends View {
+		private float cX, cY;
+		private int touches = 0;
+		final static private int MAX_SIZE = 400;
+		final private Paint paint = new Paint();
+
+		public CircleView(Context context, float x, float y) {
+			super(context);
+			cX = x;
+			cY = y;
+			paint.setStyle(Style.FILL);
+
+			Random random = new Random();
+			paint.setARGB(255, random.nextInt(256), random.nextInt(256),
+					random.nextInt(256));
+
+		}
+
+		@Override
+		protected void onDraw(Canvas canvas) {
+			canvas.drawCircle(cX, cY, MAX_SIZE / touches, paint);
+		}
+
+		public float getcX() {
+			return cX;
+		}
+
+		public void setcX(float cX) {
+			this.cX = cX;
+		}
+
+		public float getcY() {
+			return cY;
+		}
+
+		public void setcY(float cY) {
+			this.cY = cY;
+		}
+
+		public void setTouches(int touches) {
+			this.touches = touches;
+		}
+
+	}
+
+}

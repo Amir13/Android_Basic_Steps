@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewElementss6</string>
+    <string name="activity_shared_preference">Shared Preference</string>
+    <string name="activity_preference_fragment">Preference Fragment</string>
+    <string name="activity_preference_fragment_view">Preference Fragment View &amp; Update</string>
+    <string name="activity_file">File Preference</string>
+    <string name="activity_external_file">External File Preference</string>
+    <string name="activity_sql">SQL</string>
+    <string name="title_section1">DataManagement</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

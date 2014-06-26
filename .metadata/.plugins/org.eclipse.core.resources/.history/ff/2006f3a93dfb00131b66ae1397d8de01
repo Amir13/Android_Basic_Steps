@@ -1,0 +1,53 @@
+package com.android.course.location;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.net.http.AndroidHttpClient;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+public class MapActivity2 extends Activity{
+
+	private final static String UNAME = "aporter";
+	private final static String URL = "http://api.geonames.org/earthquakesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&username="
+			+ UNAME;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_map2);
+		
+		new HttpGetTask().execute(URL);
+	}
+	
+	private class HttpGetTask extends AsyncTask<String, Void, List<EarthQuakeRec>>{
+
+		AndroidHttpClient client = AndroidHttpClient.newInstance("");
+		
+		@Override
+		protected List<EarthQuakeRec> doInBackground(String... params) {
+
+			HttpGet request = new HttpGet(params[0]);
+			JSONResponseHandler handler = new JSONResponseHandler();
+			
+			try {
+				return client.execute(request, handler);
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
+		
+	}
+	
+}

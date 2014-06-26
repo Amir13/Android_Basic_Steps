@@ -1,0 +1,209 @@
+package com.android.course.location;
+
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
+
+import com.android.course.main.R;
+
+public class LocationActivity extends Activity {
+
+	private static final long MEASURE_TIME = 1000 * 30;
+
+	private final static float MIN_LAST_READ_ACCURACY = 500.0f;
+	private static final long ONE_MIN = 1000 * 60;
+	private static final long FIVE_MIN = ONE_MIN * 5;
+
+	// Constants for update
+	private static final long POLLING_FREQ = 1000 * 10;
+	private static final float MIN_DISTANCE = 10.0f;
+
+	// Views for display location information
+	private TextView accuracyView;
+	private TextView timeView;
+	private TextView latitudeView;
+	private TextView longitudeView;
+
+	private LocationManager locationManager;
+	private LocationListener locationListener;
+
+	// Current best location estimate
+	private Location bestLocation;
+
+	private boolean firstUpdate = true;
+	private int textViewColor = Color.GRAY;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_location);
+
+		accuracyView = (TextView) findViewById(R.id.accuracy_view);
+		timeView = (TextView) findViewById(R.id.time_view);
+		latitudeView = (TextView) findViewById(R.id.lat_view);
+		longitudeView = (TextView) findViewById(R.id.lng_view);
+
+		// Acquire reference to the LocationManager
+
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		if (locationManager == null) {
+			finish();
+		}
+
+		// Get best last location measurement
+		bestLocation = getBestKnownLocation(MIN_LAST_READ_ACCURACY, FIVE_MIN);
+
+		// Display last reading information
+		if (bestLocation != null) {
+			updateDisplay(bestLocation);
+		} else {
+			accuracyView.setText("No Initial Reading Available");
+		}
+
+		locationListener = new LocationListener() {
+
+			@Override
+			public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
+
+			}
+
+			@Override
+			public void onProviderEnabled(String arg0) {
+
+			}
+
+			@Override
+			public void onProviderDisabled(String arg0) {
+
+			}
+
+			@Override
+			public void onLocationChanged(Location location) {
+				changeViewColor(textViewColor);
+
+				// Determine whether new location is better than current best
+				// estimate
+				if (bestLocation == null
+						|| location.getAccuracy() < bestLocation.getAccuracy()) {
+
+					bestLocation = location;
+					updateDisplay(bestLocation);
+					changeViewColor(new Random().nextInt(256));
+
+				}
+			}
+		};
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		Log.i("LocationActivity", "onResume");
+		// Determine whether initial reading is
+		// "good enough"
+		if (bestLocation != null)
+
+			if (bestLocation.getAccuracy() > MIN_LAST_READ_ACCURACY
+					|| bestLocation.getTime() < System.currentTimeMillis()
+							- (ONE_MIN )) {
+
+				// Register for network location updates
+				locationManager.requestLocationUpdates(
+						LocationManager.NETWORK_PROVIDER, POLLING_FREQ,
+						MIN_DISTANCE, locationListener);
+
+				// Register for GPS location updates
+				locationManager.requestLocationUpdates(
+						LocationManager.GPS_PROVIDER, POLLING_FREQ,
+						MIN_DISTANCE, locationListener);
+
+				// Schedule a runnable to unregister location listeners
+				Executors.newScheduledThreadPool(1).schedule(new Runnable() {
+
+					@Override
+					public void run() {
+						Log.i("LocationActivity", "location updates cancelled");
+
+						locationManager.removeUpdates(locationListener);
+					}
+				}, MEASURE_TIME, TimeUnit.MILLISECONDS);
+
+			}
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		locationManager.removeUpdates(locationListener);
+	}
+
+	// Get the last known location from all providers
+	// return best reading that is as accurate as minAccuracy and
+	// was taken no longer then minAge milliseconds ago. If none,
+	// return null.
+	private Location getBestKnownLocation(float minLastReadAccuracy,
+			long maxTime) {
+
+		Location bestLocation = null;
+		float bestAcuracy = Float.MAX_VALUE;
+		long bestTime = Long.MIN_VALUE;
+
+		List<String> providers = locationManager.getAllProviders();
+
+		for (String provider : providers) {
+			Location location = locationManager.getLastKnownLocation(provider);
+
+			if (location != null) {
+				float accuracy = location.getAccuracy();
+				long time = location.getTime();
+
+				if (accuracy < bestAcuracy) {
+					bestLocation = location;
+					bestAcuracy = accuracy;
+					bestTime = time;
+				}
+			}
+		}
+
+		// Return best reading or null
+		if (bestAcuracy > minLastReadAccuracy
+				|| (System.currentTimeMillis() - bestTime) > maxTime) {
+			return null;
+		}
+
+		return bestLocation;
+	}
+
+	private void updateDisplay(Location bestLocation) {
+
+		accuracyView.setText("Accuracy: " + bestLocation.getAccuracy());
+		timeView.setText("Time: " + bestLocation.getTime());
+		latitudeView.setText("Latitude: " + bestLocation.getLatitude());
+		longitudeView.setText("Longitude: " + bestLocation.getLongitude());
+	}
+
+	protected void changeViewColor(int textViewColor) {
+		if (firstUpdate) {
+			accuracyView.setTextColor(textViewColor);
+			timeView.setTextColor(textViewColor);
+			latitudeView.setTextColor(textViewColor);
+			longitudeView.setTextColor(textViewColor);
+
+			firstUpdate = false;
+		}
+
+	}
+}

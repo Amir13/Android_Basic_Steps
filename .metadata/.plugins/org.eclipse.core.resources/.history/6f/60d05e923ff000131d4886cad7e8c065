@@ -1,0 +1,54 @@
+package course.android.animation;
+
+import com.course.android.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
+
+public class PropertyAnim extends Activity {
+
+	private ImageView imageView;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_graphics_xml);
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+
+		imageView = (ImageView) findViewById(R.id.imageView1);
+
+		if (hasFocus) {
+			fadeIn.run();
+		}
+	}
+
+	Runnable fadeIn = new Runnable() {
+
+		@Override
+		public void run() {
+			imageView.animate().setDuration(3000)
+					.setInterpolator(new LinearInterpolator()).alpha(1.0f)
+					.withEndAction(rotate);
+		}
+
+	};
+	
+	Runnable rotate = new Runnable() {
+
+		@Override
+		public void run() {
+			imageView.animate().setDuration(3000)
+					.setInterpolator(new LinearInterpolator()).alpha(1.0f)
+					.withEndAction(rotate);
+		}
+
+	};
+	
+
+}

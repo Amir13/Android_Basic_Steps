@@ -1,0 +1,19 @@
+package com.android.course.sensor;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import com.android.course.main.R;
+
+public class AccelomenterActivity extends Activity {
+	
+	private TextView txtViewX, txtViewY, txtViewZ;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sensor_accelerometer);
+	}
+	
+}

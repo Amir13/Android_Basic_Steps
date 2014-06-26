@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;colors.xml&apos; to &apos;values&apos;&#x0D;&#x0A;- Original project: &apos;LocationGetLocation&apos;&#x0D;&#x0A;- Destination element: &apos;values&apos;&#x0D;&#x0A;- Original element: &apos;colors.xml&apos;" description="Copy file" element1="res/values/colors.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1402974147163" target="/ViewElements5/res/values" units="0" version="1.0"/>
+</session>

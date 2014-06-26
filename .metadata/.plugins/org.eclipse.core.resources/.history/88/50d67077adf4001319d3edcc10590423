@@ -1,0 +1,55 @@
+package com.android.multimedia;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.MediaController;
+import android.widget.VideoView;
+
+public class MediaControllerActivity extends Activity {
+	private VideoView view;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_media_controller);
+
+		// Get a reference to the VideoView
+		view = (VideoView) findViewById(R.id.videoView);
+
+		// Add a Media controller to allow forward/reverse/pause/resume
+		final MediaController controller = new MediaController(
+				getApplicationContext(), true);
+
+		controller.setEnabled(false);
+
+//		view.setMediaController(controller);
+//
+//		view.setVideoURI(Uri
+//				.parse("android.resource://com.android.course.main/raw/moon"));
+//		
+//		view.setOnPreparedListener(new OnPreparedListener() {
+//
+//			@Override
+//			public void onPrepared(MediaPlayer arg0) {
+//				controller.setEnabled(true);
+//			}
+//		});
+
+	}
+	
+	@Override
+	protected void onPause() {
+		if (view != null && view.isPlaying() ) {
+			view.stopPlayback();
+			view = null;
+		}
+		
+		super.onPause();
+	}
+
+}

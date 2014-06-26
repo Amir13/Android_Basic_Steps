@@ -1,0 +1,120 @@
+package com.android.multimedia;
+
+import java.io.IOException;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.AudioManager.OnAudioFocusChangeListener;
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ToggleButton;
+
+public class AudioRecorderActivity extends Activity {
+
+	private AudioManager audioManager;
+	private MediaPlayer player;
+	private MediaRecorder mediaRecorder;
+	private final static String audioFile = Environment
+			.getExternalStorageDirectory().getAbsolutePath()
+			+ "/audioRecorded.3gp";
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_audio_recorder);
+
+		final ToggleButton recordButton = (ToggleButton) findViewById(R.id.toggleStart);
+		final ToggleButton playButton = (ToggleButton) findViewById(R.id.toggleStop);
+
+		recordButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean enabled) {
+				playButton.setEnabled(!enabled);
+				onRecordPress(enabled);
+			}
+		});
+
+		playButton.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean enabled) {
+				recordButton.setEnabled(!enabled);
+				onPlayPressed(enabled);
+			}
+		});
+
+		audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+		audioManager.requestAudioFocus(changeListener,
+				AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN);
+
+	}
+
+	private void onRecordPress(boolean starRecording) {
+		if (starRecording) {
+			startRecording();
+		} else {
+			stopRecording();
+		}
+	}
+
+	private void startRecording() {
+		mediaRecorder = new MediaRecorder();
+		mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+		mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+		mediaRecorder.setOutputFile(audioFile);
+		mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+		try {
+			mediaRecorder.prepare();
+		} catch (IllegalStateException e) {
+			Log.e("AudioRecorderActivity", e.getMessage());
+		} catch (IOException e) {
+			Log.e("AudioRecorderActivity", e.getMessage());
+		}
+	}
+
+	private void stopRecording() {
+		if (mediaRecorder != null) {
+			mediaRecorder.stop();
+			mediaRecorder.release();
+			mediaRecorder = null;
+		}
+	}
+
+	private void onPlayPressed(){
+		
+		
+	}
+	
+	
+	// Listen for Audio focus changes
+	OnAudioFocusChangeListener changeListener = new OnAudioFocusChangeListener() {
+
+		@Override
+		public void onAudioFocusChange(int focusChange) {
+			if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+				audioManager.abandonAudioFocus(changeListener);
+
+				if (player.isPlaying()) {
+					stopPlaying();
+				}
+			}
+		}
+	};
+
+	public void stopPlaying() {
+		if (condition) {
+
+		}
+	}
+
+}

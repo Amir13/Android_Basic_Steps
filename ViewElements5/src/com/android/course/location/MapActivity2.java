@@ -1,0 +1,114 @@
+package com.android.course.location;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+
+import android.app.Activity;
+import android.net.http.AndroidHttpClient;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+import com.android.course.main.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class MapActivity2 extends Activity {
+
+	// Coordinates used for centering the Map
+	private static final double CAMERA_LNG = 87.0;
+	private static final double CAMERA_LAT = 17.0;
+
+	// The Map Object
+	private GoogleMap map;
+
+	private final static String UNAME = "aporter";
+	private final static String URL = "http://api.geonames.org/earthquakesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&username="
+			+ UNAME;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_map2);
+
+		new HttpGetTask().execute(URL);
+	}
+
+	private class HttpGetTask extends
+			AsyncTask<String, Void, List<EarthQuakeRec>> {
+
+		AndroidHttpClient client = AndroidHttpClient.newInstance("");
+
+		@Override
+		protected List<EarthQuakeRec> doInBackground(String... params) {
+
+			HttpGet request = new HttpGet(params[0]);
+			JSONResponseHandler handler = new JSONResponseHandler();
+
+			try {
+				return client.execute(request, handler);
+			} catch (ClientProtocolException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(List<EarthQuakeRec> result) {
+
+			map = ((MapFragment) getFragmentManager()
+					.findFragmentById(R.id.map)).getMap();
+
+			if (map != null) {
+
+				for (EarthQuakeRec earthQuakeRec : result) {
+					map.addMarker(new MarkerOptions()
+							// Set the Marker's position
+							.position(
+									new LatLng(earthQuakeRec.getLat(),
+											earthQuakeRec.getLng()))
+							// Set the title of the Marker's information window
+							.title(String.valueOf(earthQuakeRec.getMagnitude()))
+							// Set the color for the Marker
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(getMarkerColor(earthQuakeRec
+											.getMagnitude()))));
+				}
+
+				// Center the map
+				// Should compute map center from the actual data
+				map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(
+						CAMERA_LAT, CAMERA_LNG)));
+
+			}
+			
+			if (client != null) {
+				client.close();
+			}
+
+		}
+
+		// Assign marker color
+		private float getMarkerColor(double magnitude) {
+
+			if (magnitude < 6.0) {
+				magnitude = 6.0;
+			} else if (magnitude > 9.0) {
+				magnitude = 9.0;
+			}
+
+			return (float) (120 * (magnitude - 6));
+		}
+
+	}
+
+}

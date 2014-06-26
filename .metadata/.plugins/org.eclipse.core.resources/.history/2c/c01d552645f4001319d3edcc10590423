@@ -1,0 +1,101 @@
+package com.android.multimedia;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.media.SoundPool.OnLoadCompleteListener;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class AudioManagerActivity extends Activity {
+
+	private int volume = 6, volumeMax = 10, volumeMin = 0;;
+	private AudioManager audioManager;
+	private SoundPool soundPool;
+	private int soundId;
+	private boolean canPlayAudio;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_audio_manager);
+
+		// Get reference to the AudioManager
+		audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
+		// Displays current volume level
+		final TextView tv = (TextView) findViewById(R.id.textView1);
+		tv.setText(String.valueOf(volume));
+
+		// Increase the volume
+		final Button upButton = (Button) findViewById(R.id.button2);
+		upButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				// Play key click sound
+				audioManager.playSoundEffect(AudioManager.FX_KEY_CLICK);
+
+				if (volume < volumeMax) {
+					volume += 2;
+					tv.setText(String.valueOf(volume));
+				}
+			}
+		});
+
+		// Decrease the volume
+		final Button downButton = (Button) findViewById(R.id.button1);
+		downButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				// Play key click sound
+				audioManager.playSoundEffect(AudioManager.FX_KEY_CLICK);
+
+				if (volume > volumeMin) {
+					volume -= 2;
+					tv.setText(String.valueOf(volume));
+				}
+
+			}
+		});
+
+		// Disable the Play Button
+		final Button playButton = (Button) findViewById(R.id.button3);
+		playButton.setEnabled(false);
+
+		// Create a SoundPool
+		soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+
+		// Load the sound
+		soundId = soundPool.load(this, R.raw.do_it, 1);
+
+		// Set an OnLoadCompleteListener on the SoundPool
+		soundPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
+			@Override
+			public void onLoadComplete(SoundPool soundPool, int sampleId,
+					int status) {
+				if (0 == status) {
+					playButton.setEnabled(true);
+				}
+			}
+		});
+
+		// Play the sound using a SoundPool
+		playButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (canPlayAudio)
+					soundPool.play(soundId, (float) volume / volumeMax,
+							(float) volume / volumeMax, 1, 0, 1.0f);
+			}
+		});
+
+	}
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/touch_gestures"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="24dp"
+        android:text="Touch &amp; Gestures" />
+
+    <Button
+        android:id="@+id/btnTouch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="16dp"
+        android:text="Touch Example" />
+
+    <Button
+        android:id="@+id/btnGesture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnTouch"
+        android:layout_below="@+id/btnTouch"
+        android:layout_marginTop="36dp"
+        android:text="Gesture Detector" />
+
+    <Button
+        android:id="@+id/btnGesture_detector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnGesture"
+        android:layout_below="@+id/btnGesture"
+        android:layout_marginTop="34dp"
+        android:text="Gesture Detector" />
+
+</RelativeLayout>

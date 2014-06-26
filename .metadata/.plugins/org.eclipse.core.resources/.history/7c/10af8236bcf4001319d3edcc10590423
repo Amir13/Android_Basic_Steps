@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="18dp"
+        android:text="Multimedia" />
+
+    <Button
+        android:id="@+id/btnAudio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="AudioManager" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAudio"
+        android:layout_below="@+id/btnAudio"
+        android:layout_marginTop="18dp"
+        android:text="@string/ringtone" />
+
+    <Button
+        android:id="@+id/btnRingtone"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="18dp"
+        android:text="@string/ringtone" />
+
+    <Button
+        android:id="@+id/btnAlarm"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnRingtone"
+        android:layout_alignBottom="@+id/btnRingtone"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/btnRingtone"
+        android:text="Alarm" />
+
+    <Button
+        android:id="@+id/btnNotification"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnAlarm"
+        android:layout_alignBottom="@+id/btnAlarm"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/btnAlarm"
+        android:text="Notification" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnRingtone"
+        android:layout_below="@+id/btnRingtone"
+        android:layout_marginTop="20dp"
+        android:text="Multimedia" />
+
+    <Button
+        android:id="@+id/btnVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="16dp"
+        android:text="MediaController" />
+
+    <Button
+        android:id="@+id/btnMedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnVideo"
+        android:layout_toLeftOf="@+id/btnAlarm"
+        android:text="MediaRecorder" />
+
+</RelativeLayout>

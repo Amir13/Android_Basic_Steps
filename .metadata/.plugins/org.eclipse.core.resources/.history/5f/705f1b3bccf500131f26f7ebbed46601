@@ -1,0 +1,30 @@
+package com.android.course.location;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class LocationActivity extends Activity{
+
+	// Views for display location information
+	private TextView accuracyView;
+	private TextView timeView;
+	private TextView latitudeView;
+	private TextView longitudeView;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_location);
+		
+		accuracyView = (TextView) findViewById(R.id.accuracy_view);
+		timeView = (TextView) findViewById(R.id.accuracy_view);
+		latitudeView = (TextView) findViewById(R.id.accuracy_view);
+		longitudeView = (TextView) findViewById(R.id.accuracy_view);
+		
+		
+	}
+
+}

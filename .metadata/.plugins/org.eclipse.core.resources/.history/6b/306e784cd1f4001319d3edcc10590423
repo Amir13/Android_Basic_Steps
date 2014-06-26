@@ -1,0 +1,45 @@
+package com.android.multimedia;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.graphics.PixelFormat;
+import android.hardware.Camera;
+import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
+
+public class VideoRecorderActivity extends Activity {
+
+	private Camera camera;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Setup application window
+		getWindow().setFormat(PixelFormat.TRANSLUCENT);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		setContentView(R.layout.activity_video_recorder);
+
+		// Get camera instance
+		camera = getCamera();	
+	}
+
+	private Camera getCamera() {
+		
+		camera = Camera.open();
+		
+		if (camera== null) {
+			finish();
+		}
+		
+		return camera;
+	}
+	
+	
+	
+}

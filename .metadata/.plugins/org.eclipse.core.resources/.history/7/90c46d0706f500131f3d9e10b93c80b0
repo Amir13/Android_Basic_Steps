@@ -1,0 +1,149 @@
+package com.android.course.sensor;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
+
+import com.android.course.main.R;
+
+public class MagnetometerActivity extends Activity implements
+		SensorEventListener {
+
+	private RelativeLayout layout;
+	private CompassView comapassView;
+
+	// Rotation around the Z axis
+	private double rotationInDegress;
+	private SensorManager sensorManager;
+	private Sensor accelerometer;
+	private Sensor magnetometer;
+
+	//Storage for Sensor readings
+	private float[] gravityValues = null;
+	private float[] geomagneticValues = null;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sensor_magnetometer);
+
+		layout = (RelativeLayout) findViewById(R.layout.activity_sensor_magnetometer);
+
+		comapassView = new CompassView(getApplicationContext());
+
+		layout.addView(comapassView);
+
+		// Get a reference to the SensorManager
+		sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+		// Get a reference to the accelerometer
+		accelerometer = sensorManager
+				.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
+		// Get a reference to the magnetometer
+		magnetometer = sensorManager
+				.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+
+		// Exit unless both sensors are available
+		if (null == accelerometer || null == magnetometer)
+			finish();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		// Register for sensor updates
+		sensorManager.registerListener(this, accelerometer,
+				SensorManager.SENSOR_DELAY_NORMAL);
+
+		sensorManager.registerListener(this, magnetometer,
+				SensorManager.SENSOR_DELAY_NORMAL);
+
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		
+		sensorManager.unregisterListener(this);
+	}
+	
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		// Acquire accelerometer event data
+		if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+			gravityValues = new float[3];
+			System.arraycopy(event.values, 0, gravityValues, 0, 3);
+		}
+	}
+	
+	@Override
+	public void onAccuracyChanged(Sensor arg0, int arg1) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public class CompassView extends View {
+
+		Bitmap image = BitmapFactory.decodeResource(getResources(),
+				R.drawable.arrow);
+		int width = image.getWidth();
+
+		// Height and Width of Main View
+		int parentWidth;
+		int parentHeight;
+
+		// Center of Main View
+		int parentCenterX;
+		int parentCenterY;
+
+		// Top left position of this View
+		int viewTopX;
+		int viewLeftY;
+
+		public CompassView(Context context) {
+			super(context);
+		}
+
+		// Compute location of compass arrow
+		@Override
+		protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+			parentWidth = layout.getWidth();
+			parentHeight = layout.getHeight();
+
+			parentCenterX = parentWidth / 2;
+			parentCenterY = parentHeight / 2;
+
+			viewLeftY = parentCenterX - width / 2;
+			viewTopX = parentCenterY - width / 2;
+		}
+
+		// Redraw the compass arrow
+		@Override
+		protected void onDraw(Canvas canvas) {
+			// Save the canvas
+			canvas.save();
+
+			// Rotate this View
+			canvas.rotate((float) -rotationInDegress, parentCenterX,
+					parentCenterY);
+
+			// Redraw this View
+			canvas.drawBitmap(image, viewLeftY, viewTopX, null);
+
+			// Restore the canvas
+			canvas.restore();
+		}
+	}
+
+}

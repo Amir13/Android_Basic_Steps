@@ -1,0 +1,34 @@
+package com.android.multimedia;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.MediaController;
+import android.widget.VideoView;
+
+public class MediaControllerActivity extends Activity{
+	private VideoView view;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_media_controller);
+		
+		// Get a reference to the VideoView
+		view = (VideoView) findViewById(R.id.videoView);
+		
+		// Add a Media controller to allow forward/reverse/pause/resume
+		final MediaController controller = new MediaController(getApplicationContext(), true);
+		
+		controller.setEnabled(true);
+		
+		view.setMediaController(controller);
+		
+		view.setVideoURI(Uri.parse("https://www.youtube.com/watch?v=i0kdiPbDE90"));
+		
+		
+	}
+	
+}

@@ -1,0 +1,13 @@
+package com.android.multimedia;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class AudioRecorderActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+	}
+}

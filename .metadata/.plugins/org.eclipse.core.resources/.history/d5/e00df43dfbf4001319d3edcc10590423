@@ -1,0 +1,12 @@
+package com.android.course.sensor;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MagnetometerActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+}

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ViewElements5/res/layout/first.xml&apos; to &apos;gesture_first.xml&apos;" description="Rename resource &apos;first.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/first.xml" name="gesture_first.xml" stamp="1402766297317" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ViewElements5/res/layout/second.xml&apos; to &apos;gesture_second.xml&apos;" description="Rename resource &apos;second.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/layout/second.xml" name="gesture_second.xml" stamp="1402766305842" updateReferences="true"/>
+</session>

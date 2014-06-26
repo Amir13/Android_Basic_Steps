@@ -1,0 +1,91 @@
+package com.android.course.location;
+
+import java.util.Iterator;
+import java.util.List;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class LocationActivity extends Activity {
+
+	private final static float MIN_LAST_READ_ACCURACY = 500.0f;
+	private static final long ONE_MIN = 1000 * 60;
+	private static final long FIVE_MIN = ONE_MIN * 5;
+	
+	// Views for display location information
+	private TextView accuracyView;
+	private TextView timeView;
+	private TextView latitudeView;
+	private TextView longitudeView;
+
+	private LocationManager locationManager;
+
+	// Current best location estimate
+	private Location bestLocation;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_location);
+
+		accuracyView = (TextView) findViewById(R.id.accuracy_view);
+		timeView = (TextView) findViewById(R.id.time_view);
+		latitudeView = (TextView) findViewById(R.id.lat_view);
+		longitudeView = (TextView) findViewById(R.id.lng_view);
+
+		// Acquire reference to the LocationManager
+
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		if (locationManager == null) {
+			finish();
+		}
+
+		// Get best last location measurement
+		bestLocation = getBestKnownLocation(MIN_LAST_READ_ACCURACY, FIVE_MIN);
+		
+		
+	}
+
+	// Get the last known location from all providers
+	// return best reading that is as accurate as minAccuracy and
+	// was taken no longer then minAge milliseconds ago. If none,
+	// return null.
+	private Location getBestKnownLocation(float minLastReadAccuracy,
+			long maxTime) {
+		
+		Location bestLocation = null;
+		float bestAcuracy = Float.MAX_VALUE;
+		long bestTime = Long.MIN_VALUE;
+		
+		List<String> providers = locationManager.getAllProviders();
+		
+		for (String provider : providers) {
+			Location location = locationManager.getLastKnownLocation(provider);
+			
+			if (location != null) {
+				float accuracy = location.getAccuracy();
+				long time = location.getTime();
+				
+				if (accuracy < bestAcuracy) {
+					bestLocation = location;
+					bestAcuracy = accuracy;
+					bestTime = time;
+				}
+			}
+		}
+		
+		// Return best reading or null
+		if (bestAcuracy > minLastReadAccuracy || (System.currentTimeMillis() - bestTime) > maxTime) {
+			return null;
+		} 		
+		
+		return bestLocation;
+	}
+
+}

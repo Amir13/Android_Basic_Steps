@@ -1,0 +1,79 @@
+package com.android.course.touch;
+
+import java.util.Random;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.FrameLayout;
+
+
+
+public class TouchActivity extends Activity {
+
+	private FrameLayout frame;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_touch);
+		
+		frame = (FrameLayout) findViewById(R.id.touch_frame);
+		
+		
+	}
+
+	
+
+	private class CircleView extends View{
+		private float cX, cY;
+		private int touches = 0;
+		final static private int MAX_SIZE = 400;
+		final private Paint paint = new Paint();
+		
+		public CircleView(Context context, float x, float y) {
+			super(context);
+			cX = x;
+			cY = y;
+			paint.setStyle(Style.FILL);
+			
+			Random random = new Random();
+			paint.setARGB(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+			
+		}
+
+		@Override
+		protected void onDraw(Canvas canvas) {
+			canvas.drawCircle(cX, cY, MAX_SIZE / touches, paint);
+		}
+		
+		public float getcX() {
+			return cX;
+		}
+
+		public void setcX(float cX) {
+			this.cX = cX;
+		}
+
+		public float getcY() {
+			return cY;
+		}
+
+		public void setcY(float cY) {
+			this.cY = cY;
+		}
+		
+		public void setTouches(int touches) {
+			this.touches = touches;
+		}
+		
+	}
+	
+}

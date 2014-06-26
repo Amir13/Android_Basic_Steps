@@ -1,0 +1,5 @@
+package com.android.course.sensor;
+
+public class MagnetometerActivity {
+
+}

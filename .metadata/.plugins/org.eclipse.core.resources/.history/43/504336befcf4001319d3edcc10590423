@@ -1,0 +1,38 @@
+package com.android.course.sensor;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RelativeLayout;
+
+public class MagnetometerActivity extends Activity{
+
+	private RelativeLayout layout;
+	private CompassView comapassView;
+	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_sensor_magnetometer);
+		
+		layout = (RelativeLayout) findViewById(R.layout.activity_sensor_magnetometer);
+		
+		
+		
+		
+	}
+	
+	public class CompassView extends View{
+
+		public CompassView(Context context) {
+			super(context);
+		}
+		
+		
+	}
+	
+}

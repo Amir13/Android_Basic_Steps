@@ -1,0 +1,17 @@
+1402809409438	Extracts string 'Ringtones' into R.string.ringtone
+1402848786548	Rename resource 'YOU AGAINST YOURSELF [MOTIVATIONAL](360p_H.264-AAC).mp4'
+1402854584484	Delete element
+1402854600373	Delete element
+1402854919756	Rename field 'view'
+1402854980010	Rename local variable 'controller'
+1402856451765	Delete element
+1402856458650	Delete element
+1402857843936	Rename local variable 'btnVideo'
+1402868355149	Rename local variable 'hlder'
+1402879994221	Rename resource 'fragment_multimedia.xml'
+1402885393179	Move file
+1402974303491	Rename field 'LongitudeView'
+1402975159800	Rename local variable 'string'
+1402975284829	Rename local variable 'bestAge'
+1402975416706	Rename local variable 'fiveMin'
+1402975894460	Rename local variable 'bestLocation2'

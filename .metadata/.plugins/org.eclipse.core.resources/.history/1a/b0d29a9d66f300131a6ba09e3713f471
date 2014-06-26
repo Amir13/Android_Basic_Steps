@@ -1,0 +1,36 @@
+package com.android.course.touch;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+
+
+
+public class TouchActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_touch);
+	}
+
+	
+
+	private class CircleView extends View{
+		private float cX, xY;
+		
+		public CircleView(Context context, float x, float y) {
+			super(context);
+			cX = x;
+			cY = y;
+		}
+		
+		
+		
+	}
+	
+}

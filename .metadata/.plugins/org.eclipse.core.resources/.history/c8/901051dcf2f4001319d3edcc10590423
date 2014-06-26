@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewElements5</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">Touch &amp; Gestures</string>
+    <string name="title_section2">Multimedia</string>
+    <string name="title_section3">Sensors</string>
+    <string name="title_activity_touch">TouchActivity</string>
+    <string name="title_activity_gesture">Gesture Activity</string>
+    <string name="title_activity_gesture_builder">Gesture Builder Activity</string>
+    <string name="title_activity_audio_manager">AudioManager Activity</string>
+    <string name="title_activity_media_controller">MediaController Activity</string>
+    <string name="title_activity_audio_recorder">AudioRecorder Activity</string>
+    <string name="title_activity_video_recorder">VideoRecorder Activity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="down_string">Down</string>
+    <string name="up_string">Up</string>
+    <string name="play_string">Play</string>
+    <string name="ringtone">Ringtone</string>
+
+</resources>
