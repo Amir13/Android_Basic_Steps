@@ -4,13 +4,25 @@
     android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnPreference"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:text="Data Management"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/btnData"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="14dp"
-        android:layout_marginTop="22dp"
+        android:layout_alignRight="@+id/btnPreference"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="95dp"
         android:text="Data Management" />
 
     <Button
@@ -18,29 +30,20 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnData"
-        android:layout_alignRight="@+id/btnData"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/btnData"
+        android:layout_marginLeft="30dp"
         android:text="Preference Fragment" />
-
-    <Button
-        android:id="@+id/btnData"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="16dp"
-        android:text="Data Management" />
 
     <Button
         android:id="@+id/btnFile"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnPreference"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/btnPreference"
         android:layout_below="@+id/btnPreference"
+        android:layout_marginLeft="30dp"
         android:text="Interanl File" />
 
     <Button
@@ -48,9 +51,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnFile"
+        android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/btnFile"
         android:layout_below="@+id/btnFile"
+        android:layout_marginLeft="30dp"
         android:text="External File" />
 
     <Button
@@ -58,9 +62,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnExtFile"
-        android:layout_alignRight="@+id/btnExtFile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/btnFile"
         android:layout_below="@+id/btnExtFile"
+        android:layout_marginLeft="30dp"
         android:text="SQL" />
 
 </RelativeLayout>

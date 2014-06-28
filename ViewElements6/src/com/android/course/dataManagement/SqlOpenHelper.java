@@ -13,6 +13,8 @@ public class SqlOpenHelper extends SQLiteOpenHelper {
 
 	final static String COL_ID = "_id";
 	final static String COL_ARTIST_NAME = "name";
+	final static String[] COLUMNS = {COL_ID, COL_ARTIST_NAME};
+	
 	final private static String CREATE_CMD = "CREATE TABLE " + TABLE_NAME + " (" + COL_ID
 			+ " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_ARTIST_NAME
 			+ " TEXT NOT NULL)";

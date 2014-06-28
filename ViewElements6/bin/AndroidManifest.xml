@@ -51,6 +51,10 @@
             android:name="com.android.course.dataManagement.SqlActivity"
             android:label="@string/activity_sql" >
         </activity>
+        <activity
+            android:name="com.android.course.contentProvider.ContentProviderActivity"
+            android:label="@string/activity_content_provider" >
+        </activity>
     </application>
 
 </manifest>
