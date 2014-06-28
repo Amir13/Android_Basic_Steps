@@ -1,0 +1,42 @@
+package com.android.course.contentProvider;
+
+import android.app.ListActivity;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.provider.ContactsContract.Contacts;
+
+import com.android.course.main.R;
+
+public class ContentProviderActivity extends ListActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.activity_content_provider);
+
+		// Contact data
+		String columsToExtract[] = new String[] { Contacts._ID,
+				Contacts.DISPLAY_NAME, Contacts.PHOTO_THUMBNAIL_URI };
+
+		// Get the ContentResolver
+		ContentResolver resolver = getContentResolver();
+
+		// filter contacts with empty names
+		String whereClauses = "((" + Contacts.DISPLAY_NAME + " NOTNULL) AND ("
+				+ Contacts.DISPLAY_NAME + " != '' ) AND (" + Contacts.STARRED
+				+ "== 1 ))";
+
+		
+		// sort by increasing ID
+		String sortOrder = Contacts._ID + "ASC";
+
+		// query contacts ContentProvider
+		Cursor cursor = resolver.query(Contacts.CONTENT_URI, columsToExtract,
+				whereClauses, null, sortOrder);
+
+		// pass cursor to custom list adapter
+		setListAdapter(new ContactListAdapter(this,
+				R.layout.activity_content_provider, cursor, 0));
+	}
+}

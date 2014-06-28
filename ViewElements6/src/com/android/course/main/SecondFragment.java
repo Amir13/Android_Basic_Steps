@@ -10,6 +10,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.course.contentProvider.ContentInsertActivity;
+import com.android.course.contentProvider.ContentInsertMyAdapterActivity;
+import com.android.course.contentProvider.ContentLoaderActivity;
 import com.android.course.contentProvider.ContentProviderActivity;
 
 public class SecondFragment extends Fragment {
@@ -24,7 +27,6 @@ public class SecondFragment extends Fragment {
 	
 	@Override
 	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
 		super.onAttach(activity);
 	}
 	
@@ -44,5 +46,45 @@ public class SecondFragment extends Fragment {
 
 			}
 		});
+		
+		final Button btnContentLoader = (Button) getActivity().findViewById(R.id.btnContentLoader);
+		btnContentLoader.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ContentLoaderActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnInsert = (Button) getActivity().findViewById(R.id.btnInsert);
+		btnInsert.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ContentInsertActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnInsert2 = (Button) getActivity().findViewById(R.id.btnInsert2);
+		btnInsert2.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ContentInsertMyAdapterActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
 	}
 }

@@ -1,0 +1,161 @@
+package com.android.course.contentProvider;
+
+import java.util.ArrayList;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.ListActivity;
+import android.app.LoaderManager;
+import android.content.ContentProviderOperation;
+import android.content.CursorLoader;
+import android.content.Loader;
+import android.content.OperationApplicationException;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.StructuredName;
+import android.provider.ContactsContract.Contacts;
+import android.provider.ContactsContract.Data;
+import android.provider.ContactsContract.RawContacts;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
+
+import com.android.course.main.R;
+
+public class ContentInsertActivity extends ListActivity implements
+		LoaderManager.LoaderCallbacks<Cursor> {
+
+	public final static String[] names = new String[] { "Paly !!",
+			"Android Painter", "Steve Ballmer", "Steve Jobs", "Larry Page" };
+
+	private Account[] accountList;
+	private String type;
+	private String name;
+
+//	private static final String columnsToExtract[] = new String[] {
+//			Contacts._ID, Contacts.DISPLAY_NAME, Contacts.STARRED };
+	
+	private static final String columnsToExtract[] = new String[] {
+		Contacts._ID, Contacts.DISPLAY_NAME, Contacts.PHOTO_THUMBNAIL_URI };
+
+		
+//	private static final String columnsToDisplay[] = new String[] { Contacts.DISPLAY_NAME };
+	private static final String columnsToDisplay[] = new String[] { Contacts._ID, Contacts.PHOTO_THUMBNAIL_URI, 
+		Contacts.DISPLAY_NAME };
+	private static final int[] resourceIds = new int[] { R.id.photo, R.id.name };
+
+//	private SimpleCursorAdapter adapter;
+	private ContactListAdapter adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Get Account information
+		// Must have a Google account set up on your device
+		accountList = AccountManager.get(this).getAccountsByType("com.google");
+
+		// Exit if there are no google accounts
+		if (accountList.length == 0) {
+			finish();
+		}
+
+		type = accountList[0].type;
+		name = accountList[0].name;
+
+		// Insert contacts
+		insertContacts();
+
+		// Create and set empty list adapter
+//		adapter = new SimpleCursorAdapter(this,
+//				R.layout.activity_content_provider, null, columnsToDisplay,
+//				resourceIds, 0);
+
+		adapter = new ContactListAdapter(this,
+				R.layout.activity_content_provider, null, 0);
+		
+		setListAdapter(adapter);
+
+		// Initialize a CursorLoader
+		getLoaderManager().initLoader(0, null, this);
+	}
+
+	// Insert all new contacts into Contacts ContentProvider
+	private void insertContacts() {
+		// Set up a batch operation on Contacts ContentProvider
+		ArrayList<ContentProviderOperation> batchOperation = new ArrayList<ContentProviderOperation>();
+
+		for (String name : names) {
+			addRecordToBatchOperation(name, batchOperation);
+		}
+
+		try {
+
+			// Apply all batched operations
+			getContentResolver().applyBatch(ContactsContract.AUTHORITY,
+					batchOperation);
+
+		} catch (RemoteException e) {
+			Log.i("ContentInsertActivity", e.getMessage());
+		} catch (OperationApplicationException e) {
+			Log.i("ContentInsertActivity", e.getMessage());
+		}
+
+	}
+
+	private void addRecordToBatchOperation(String nameContact,
+			ArrayList<ContentProviderOperation> batchOperation) {
+
+		int position = batchOperation.size();
+
+		// First part of operation
+		batchOperation.add(ContentProviderOperation
+				.newInsert(RawContacts.CONTENT_URI)
+				.withValue(RawContacts.ACCOUNT_TYPE, type)
+				.withValue(RawContacts.ACCOUNT_NAME, name)
+				.withValue(Contacts.STARRED, 1).build());
+
+		// Second part of operation
+		batchOperation.add(ContentProviderOperation.newInsert(Data.CONTENT_URI)
+				.withValueBackReference(Data.RAW_CONTACT_ID, position)
+				.withValue(Data.MIMETYPE, StructuredName.CONTENT_ITEM_TYPE)
+				.withValue(StructuredName.DISPLAY_NAME, nameContact).build());
+
+	}
+
+	@Override
+	protected void onDestroy() {
+
+		for (String name : names) {
+			getContentResolver().delete(
+					ContactsContract.RawContacts.CONTENT_URI,
+					ContactsContract.Contacts.DISPLAY_NAME + "=?",
+					new String[] { name });
+		}
+
+		super.onDestroy();
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+		String select = "((" + Contacts.DISPLAY_NAME + " NOTNULL) AND ("
+				+ Contacts.DISPLAY_NAME + " != '' ) AND (" + Contacts.STARRED
+				+ "== 1))";
+
+		return new CursorLoader(this, Contacts.CONTENT_URI, columnsToExtract,
+				select, null, Contacts._ID + " ASC");
+
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
+		adapter.swapCursor(cursor);
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		adapter.swapCursor(null);
+	}
+}

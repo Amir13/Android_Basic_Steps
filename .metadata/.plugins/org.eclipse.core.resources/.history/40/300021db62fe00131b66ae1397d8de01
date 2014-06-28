@@ -1,0 +1,20 @@
+package com.android.course.contentProvider;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.provider.Contacts;
+
+public class ContentProviderActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+//		setContentView(R.layout.activity_content_provider);
+		
+		// Contact data
+		String columsToExtract[] = new String[]{Contacts._ID};
+		
+	}
+}

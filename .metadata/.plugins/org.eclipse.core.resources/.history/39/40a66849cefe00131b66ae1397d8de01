@@ -1,0 +1,52 @@
+package com.android.course.contentProvider;
+
+import java.util.ArrayList;
+
+import com.android.course.main.R;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.content.ContentProviderOperation;
+import android.os.Bundle;
+
+public class ContentInsertActivity extends Activity {
+
+	public final static String[] names = new String[]{"Paly !!","Android Painter",
+		"Steve Ballmer", "Steve Jobs", "Larry Page"};
+	
+	private Account[] accountList;
+	private String type;
+	private String name;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Get Account information
+		// Must have a Google account set up on your device
+		accountList = AccountManager.get(this).getAccountsByType("com.google");
+
+		// Exit if there are no google accounts
+		if (accountList.length == 0) {
+			finish();
+		}
+
+		type = accountList[0].type;
+		name = accountList[0].name;
+
+		// Insert contacts
+		insertContacts();
+	}
+
+	// Insert all new contacts into Contacts ContentProvider
+	private void insertContacts() {
+		// Set up a batch operation on Contacts ContentProvider
+		ArrayList<ContentProviderOperation> batchOperation = new ArrayList<ContentProviderOperation>();
+
+		for (String name : name) {
+			
+		} 
+		
+	}
+}

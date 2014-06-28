@@ -1,0 +1,5 @@
+package com.android.course.contentProvider;
+
+public class ContentLoaderActivity {
+
+}

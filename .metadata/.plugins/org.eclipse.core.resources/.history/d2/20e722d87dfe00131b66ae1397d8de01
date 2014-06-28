@@ -1,0 +1,46 @@
+package com.android.course.contentProvider;
+
+import android.app.ListActivity;
+import android.app.LoaderManager;
+import android.content.Loader;
+import android.database.Cursor;
+import android.os.Bundle;
+
+import com.android.course.main.R;
+
+public class ContentLoaderActivity extends ListActivity implements
+		LoaderManager.LoaderCallbacks<Cursor> {
+
+	private ContactListAdapter adapter;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Create and set empty adapter
+		adapter = new ContactListAdapter(this,
+				R.layout.activity_content_provider, null, 0);
+		
+		setListAdapter(adapter);
+		
+		// Initialize the loader
+		getLoaderManager().initLoader(0, null, this);
+
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		return null;
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+
+	}
+
+}

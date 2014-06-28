@@ -1,0 +1,16 @@
+package com.android.course.contentProvider;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ContentLoaderActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_content_provider);
+	}
+	
+}

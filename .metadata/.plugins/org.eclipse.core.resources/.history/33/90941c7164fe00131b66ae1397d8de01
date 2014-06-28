@@ -1,0 +1,33 @@
+package com.android.course.contentProvider;
+
+import course.examples.ContentProviders.ContactsListWithAdapter.R;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.DataSetObserver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ResourceCursorAdapter;
+
+public class ContactListAdapter extends ResourceCursorAdapter {
+
+	private Bitmap defaultPicture;
+	private String TAG = "ContactInfoListAdapter";
+
+	public ContactListAdapter(Context context, int layout, Cursor c, int flags) {
+		super(context, layout, c, flags);
+
+		// default thumbnail photo
+//		defaultPicture = BitmapFactory.decodeResource(context.getResources(),
+//				R.drawable.de);
+	}
+
+	@Override
+	public void bindView(View arg0, Context arg1, Cursor arg2) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

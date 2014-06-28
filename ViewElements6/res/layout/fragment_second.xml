@@ -11,8 +11,8 @@
         android:layout_alignLeft="@+id/btnContent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="18dp"
-        android:textAppearance="?android:attr/textAppearanceLarge" 
-        android:text="@string/contentprovider" />
+        android:text="@string/contentprovider"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/btnContent"
@@ -25,5 +25,36 @@
         android:layout_marginTop="15dp"
         android:text="@string/contentprovider" />
 
+    <Button
+        android:id="@+id/btnContentLoader"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnContent"
+        android:layout_alignRight="@+id/btnContent"
+        android:layout_below="@+id/btnContent"
+        android:layout_marginTop="16dp"
+        android:text="ContentLoader" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnContentLoader"
+        android:layout_below="@+id/btnContentLoader"
+        android:layout_marginTop="14dp"
+        android:text="Insert using Simple Adapter" />
+
+    <Button
+        android:id="@+id/btnInsert2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnInsert"
+        android:layout_alignRight="@+id/btnInsert"
+        android:layout_below="@+id/btnInsert"
+        android:layout_marginTop="16dp"
+        android:text="Insert using My Adapter" />
 
 </RelativeLayout>

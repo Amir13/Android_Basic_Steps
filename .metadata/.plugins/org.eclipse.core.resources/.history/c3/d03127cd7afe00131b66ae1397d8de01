@@ -1,0 +1,13 @@
+package com.android.course.contentProvider;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ContentLoaderActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+}

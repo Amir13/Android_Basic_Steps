@@ -1,0 +1,37 @@
+package com.android.course.contentProvider;
+
+import android.app.ListActivity;
+import android.app.LoaderManager;
+import android.content.Loader;
+import android.database.Cursor;
+import android.os.Bundle;
+
+import com.android.course.main.R;
+
+public class ContentLoaderActivity extends ListActivity implements LoaderManager.LoaderCallbacks<Cursor>{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_content_provider);
+	}
+
+	@Override
+	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Cursor> arg0, Cursor arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Cursor> arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

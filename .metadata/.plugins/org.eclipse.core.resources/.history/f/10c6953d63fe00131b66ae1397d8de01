@@ -1,0 +1,26 @@
+package com.android.course.contentProvider;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ResourceCursorAdapter;
+
+public class ContactListAdapter extends ResourceCursorAdapter {
+
+	public ContactListAdapter(Context context, int layout, Cursor c) {
+		super(context, layout, c);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void bindView(View arg0, Context arg1, Cursor arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

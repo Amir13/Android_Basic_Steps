@@ -1,0 +1,26 @@
+package com.android.course.contentProvider;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.os.Bundle;
+
+public class ContentInsertActivity extends Activity {
+
+	private Account[] accountList;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		// Get Account information
+		// Must have a Google account set up on your device
+		accountList = AccountManager.get(this).getAccountsByType("com.google");
+
+		// Exit if there are no google accounts
+		if (accountList.length == 0) {
+			finish();
+		}
+
+	}
+}
