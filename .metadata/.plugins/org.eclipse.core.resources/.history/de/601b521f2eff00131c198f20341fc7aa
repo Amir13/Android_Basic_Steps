@@ -1,0 +1,109 @@
+package com.android.course.main;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.android.course.dataManagement.ExternalFileActivity;
+import com.android.course.dataManagement.FileActivity;
+import com.android.course.dataManagement.PreferenceFragmentActivity;
+import com.android.course.dataManagement.SqlActivity;
+import com.android.course.service.ServiceClientActivity;
+
+public class FirstFragment extends Fragment {
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		
+		View root = inflater.inflate(R.layout.fragment_first, container,false);
+		
+		
+		return root;
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+
+		super.onActivityCreated(savedInstanceState);
+		
+		final Button btnService = (Button) getActivity().findViewById(R.id.btnService);
+		btnService.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ServiceClientActivity.class);
+				startActivity(intent);
+
+			}
+		});
+		
+		final Button btnPreference = (Button) getActivity().findViewById(R.id.btnPreference);
+		btnPreference.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						PreferenceFragmentActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnFile = (Button) getActivity().findViewById(R.id.btnFile);
+		btnFile.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						FileActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnExtFile = (Button) getActivity().findViewById(R.id.btnExtFile);
+		btnExtFile.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ExternalFileActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnSql = (Button) getActivity().findViewById(R.id.btnSql);
+		btnSql.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						SqlActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		
+		
+	}
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+	}
+}
+

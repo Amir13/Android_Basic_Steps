@@ -1,0 +1,32 @@
+package com.android.course.service;
+
+import com.android.course.dataManagement.PreferenceFragmentActivity;
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class ServiceClientActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.activity_service);
+		
+		final Button btn = (Button) findViewById(R.id.btn);
+		btn.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				startActivity(intent);
+				
+			}
+		});
+	}
+}

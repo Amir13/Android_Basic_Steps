@@ -1,3 +1,5 @@
 1403918851491	Rename field 'mNoPictureBitmap'
 1403919625663	Delete element
 1403919671565	Rename resource 'default.jpg'
+1403980352910	Rename package 'com.android.course.MyContentProvider'
+1403980384172	Rename type 'MyContentProvider'

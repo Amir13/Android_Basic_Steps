@@ -993,7 +993,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f02005a;
     }
     public static final class id {
-        public static final int _id=0x7f070057;
+        public static final int _id=0x7f07005f;
         public static final int action_bar=0x7f07001c;
         public static final int action_bar_activity_content=0x7f070015;
         public static final int action_bar_container=0x7f07001b;
@@ -1002,44 +1002,49 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f070023;
         public static final int action_bar_title=0x7f070022;
         public static final int action_context_bar=0x7f07001d;
-        public static final int action_example=0x7f07005a;
+        public static final int action_example=0x7f070062;
         public static final int action_menu_divider=0x7f070016;
         public static final int action_menu_presenter=0x7f070017;
         public static final int action_mode_close_button=0x7f070024;
-        public static final int action_settings=0x7f070059;
+        public static final int action_settings=0x7f070061;
         public static final int activity_chooser_view_content=0x7f070025;
         public static final int always=0x7f07000b;
         public static final int beginning=0x7f070011;
-        public static final int btnContent=0x7f070053;
-        public static final int btnContentLoader=0x7f070054;
-        public static final int btnData=0x7f07004d;
-        public static final int btnExtFile=0x7f07004f;
-        public static final int btnFile=0x7f07004e;
-        public static final int btnInsert=0x7f070055;
-        public static final int btnInsert2=0x7f070056;
-        public static final int btnPreference=0x7f07004c;
-        public static final int btnSql=0x7f070050;
-        public static final int btn_play=0x7f070048;
-        public static final int check_pref_button=0x7f070043;
+        public static final int btnContent=0x7f070058;
+        public static final int btnContentLoader=0x7f070059;
+        public static final int btnData=0x7f070052;
+        public static final int btnExtFile=0x7f070054;
+        public static final int btnFile=0x7f070053;
+        public static final int btnInsert=0x7f07005a;
+        public static final int btnInsert2=0x7f07005b;
+        public static final int btnMyContent=0x7f07005c;
+        public static final int btnPreference=0x7f070051;
+        public static final int btnRemoteService=0x7f07005e;
+        public static final int btnService=0x7f07005d;
+        public static final int btnSql=0x7f070055;
+        public static final int btn_play=0x7f07004c;
+        public static final int check_pref_button=0x7f070047;
         public static final int checkbox=0x7f07002d;
         public static final int collapseActionView=0x7f07000d;
-        public static final int container=0x7f070041;
+        public static final int container=0x7f070043;
+        public static final int data=0x7f070046;
         public static final int default_activity_button=0x7f070028;
         public static final int dialog=0x7f07000e;
         public static final int disableHome=0x7f070008;
-        public static final int drawer_layout=0x7f070040;
+        public static final int drawer_layout=0x7f070042;
         public static final int dropdown=0x7f07000f;
         public static final int edit_query=0x7f070030;
         public static final int end=0x7f070013;
         public static final int expand_activities_button=0x7f070026;
         public static final int expanded_menu=0x7f07002c;
-        public static final int fix_button=0x7f07004a;
-        public static final int game_score_text=0x7f070049;
-        public static final int high_score_label=0x7f070045;
-        public static final int high_score_text=0x7f070046;
+        public static final int fix_button=0x7f07004f;
+        public static final int game_score_text=0x7f07004d;
+        public static final int high_score_label=0x7f070049;
+        public static final int high_score_text=0x7f07004a;
         public static final int home=0x7f070014;
         public static final int homeAsUp=0x7f070005;
         public static final int icon=0x7f07002a;
+        public static final int idString=0x7f070045;
         public static final int ifRoom=0x7f07000a;
         public static final int image=0x7f070027;
         public static final int linearLayout=0x7f07003e;
@@ -1047,16 +1052,16 @@ containing a value of this type.
         public static final int list_item=0x7f070029;
         public static final int middle=0x7f070012;
         public static final int name=0x7f07003c;
-        public static final int navigation_drawer=0x7f070042;
+        public static final int navigation_drawer=0x7f070044;
         public static final int never=0x7f070009;
         public static final int none=0x7f070010;
         public static final int normal=0x7f070000;
         public static final int photo=0x7f07003d;
-        public static final int pref_screen=0x7f070058;
+        public static final int pref_screen=0x7f070060;
         public static final int progress_circular=0x7f070018;
         public static final int progress_horizontal=0x7f070019;
         public static final int radio=0x7f07002f;
-        public static final int reset_button=0x7f070047;
+        public static final int reset_button=0x7f07004b;
         public static final int scrollView1=0x7f07003f;
         public static final int search_badge=0x7f070032;
         public static final int search_bar=0x7f070031;
@@ -1068,21 +1073,24 @@ containing a value of this type.
         public static final int search_plate=0x7f070036;
         public static final int search_src_text=0x7f070037;
         public static final int search_voice_btn=0x7f07003b;
-        public static final int section_label=0x7f070051;
+        public static final int section_label=0x7f070056;
         public static final int shortcut=0x7f07002e;
         public static final int showCustom=0x7f070007;
         public static final int showHome=0x7f070004;
         public static final int showTitle=0x7f070006;
         public static final int split_action_bar=0x7f07001e;
+        public static final int start_button=0x7f070041;
+        public static final int startbtn=0x7f07004e;
+        public static final int stop_button=0x7f070040;
         public static final int submit_area=0x7f070039;
         public static final int tabMode=0x7f070002;
-        public static final int textView1=0x7f070052;
-        public static final int textView13=0x7f07004b;
+        public static final int textView1=0x7f070057;
+        public static final int textView13=0x7f070050;
         public static final int title=0x7f07002b;
         public static final int top_action_bar=0x7f070020;
         public static final int up=0x7f070021;
         public static final int useLogo=0x7f070003;
-        public static final int userPreferenceFragment=0x7f070044;
+        public static final int userPreferenceFragment=0x7f070048;
         public static final int withText=0x7f07000c;
     }
     public static final class integer {
@@ -1138,26 +1146,31 @@ containing a value of this type.
         public static final int activity_content_provider=0x7f030018;
         public static final int activity_external_file=0x7f030019;
         public static final int activity_file=0x7f03001a;
-        public static final int activity_main=0x7f03001b;
-        public static final int activity_preference_fragment=0x7f03001c;
-        public static final int activity_preference_fragment_update=0x7f03001d;
-        public static final int activity_schared_preference=0x7f03001e;
-        public static final int activity_sql=0x7f03001f;
-        public static final int fragment_first=0x7f030020;
-        public static final int fragment_main=0x7f030021;
-        public static final int fragment_navigation_drawer=0x7f030022;
-        public static final int fragment_second=0x7f030023;
-        public static final int sql_layout=0x7f030024;
-        public static final int support_simple_spinner_dropdown_item=0x7f030025;
+        public static final int activity_foreground_service=0x7f03001b;
+        public static final int activity_main=0x7f03001c;
+        public static final int activity_my_content=0x7f03001d;
+        public static final int activity_preference_fragment=0x7f03001e;
+        public static final int activity_preference_fragment_update=0x7f03001f;
+        public static final int activity_schared_preference=0x7f030020;
+        public static final int activity_service=0x7f030021;
+        public static final int activity_sql=0x7f030022;
+        public static final int fragment_first=0x7f030023;
+        public static final int fragment_main=0x7f030024;
+        public static final int fragment_navigation_drawer=0x7f030025;
+        public static final int fragment_second=0x7f030026;
+        public static final int fragment_thrid=0x7f030027;
+        public static final int sql_layout=0x7f030028;
+        public static final int support_simple_spinner_dropdown_item=0x7f030029;
     }
     public static final class menu {
         public static final int global=0x7f0e0000;
         public static final int main=0x7f0e0001;
     }
     public static final class raw {
-        public static final int image3=0x7f060000;
-        public static final int image3a=0x7f060001;
-        public static final int painter=0x7f060002;
+        public static final int do_it=0x7f060000;
+        public static final int image3=0x7f060001;
+        public static final int image3a=0x7f060002;
+        public static final int painter=0x7f060003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1200,12 +1213,17 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0c000b;
-        public static final int action_example=0x7f0c001d;
-        public static final int action_settings=0x7f0c001e;
+        public static final int action_example=0x7f0c0023;
+        public static final int action_settings=0x7f0c0024;
+        public static final int activity_content_foreground_service=0x7f0c001c;
         public static final int activity_content_insert=0x7f0c0016;
         public static final int activity_content_insert_adapter=0x7f0c0017;
+        public static final int activity_content_insert_my_content=0x7f0c0019;
+        public static final int activity_content_insert_my_content_user=0x7f0c0018;
         public static final int activity_content_loader=0x7f0c0015;
         public static final int activity_content_provider=0x7f0c0014;
+        public static final int activity_content_service=0x7f0c001b;
+        public static final int activity_content_service_invoke=0x7f0c001a;
         public static final int activity_external_file=0x7f0c0012;
         public static final int activity_file=0x7f0c0011;
         public static final int activity_preference_fragment=0x7f0c000f;
@@ -1213,12 +1231,13 @@ containing a value of this type.
         public static final int activity_shared_preference=0x7f0c000e;
         public static final int activity_sql=0x7f0c0013;
         public static final int app_name=0x7f0c000d;
-        public static final int contentprovider=0x7f0c001f;
-        public static final int navigation_drawer_close=0x7f0c001c;
-        public static final int navigation_drawer_open=0x7f0c001b;
-        public static final int title_section1=0x7f0c0018;
-        public static final int title_section2=0x7f0c0019;
-        public static final int title_section3=0x7f0c001a;
+        public static final int contentprovider=0x7f0c0025;
+        public static final int navigation_drawer_close=0x7f0c0022;
+        public static final int navigation_drawer_open=0x7f0c0021;
+        public static final int title_section1=0x7f0c001d;
+        public static final int title_section2=0x7f0c001e;
+        public static final int title_section3=0x7f0c001f;
+        public static final int title_section4=0x7f0c0020;
     }
     public static final class style {
         /** 

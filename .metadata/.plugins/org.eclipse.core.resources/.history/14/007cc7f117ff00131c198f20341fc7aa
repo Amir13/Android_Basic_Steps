@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.course.main"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+         <provider
+            android:name="course.examples.ContentProviders.StringContentProvider.StringsContentProvider"
+            android:authorities="course.examples.ContentProviders.StringContentProvider"
+            android:exported="true" >
+        </provider>
+        <activity
+            android:name="com.android.course.main.MainActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.SharedPreferenceActivity"
+            android:label="@string/activity_shared_preference" >
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.PreferenceFragmentActivity"
+            android:label="@string/activity_preference_fragment" >
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.PreferencesFragmentViewAndUpdate"
+            android:label="@string/activity_preference_fragment_view" >
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.FileActivity"
+            android:label="@string/activity_file" >
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.ExternalFileActivity"
+            android:label="@string/activity_external_file"
+            android:screenOrientation="landscape" 
+            android:configChanges="orientation|keyboardHidden|screenSize">
+        </activity>
+        <activity
+            android:name="com.android.course.dataManagement.SqlActivity"
+            android:label="@string/activity_sql" >
+        </activity>
+        <activity
+            android:name="com.android.course.contentProvider.ContentProviderActivity"
+            android:label="@string/activity_content_provider" >
+        </activity>
+        <activity
+            android:name="com.android.course.contentProvider.ContentLoaderActivity"
+            android:label="@string/activity_content_loader" >
+        </activity>
+        <activity
+            android:name="com.android.course.contentProvider.ContentInsertActivity"
+            android:label="@string/activity_content_insert" >
+        </activity>
+        <activity
+            android:name="com.android.course.contentProvider.ContentInsertMyAdapterActivity"
+            android:label="@string/activity_content_insert_adapter" >
+        </activity>
+        <activity
+            android:name="com.android.course.myContentProvider.MyStringContentProviderUser"
+            android:label="@string/activity_content_insert_my_content_user" >
+        </activity>
+    </application>
+
+</manifest>

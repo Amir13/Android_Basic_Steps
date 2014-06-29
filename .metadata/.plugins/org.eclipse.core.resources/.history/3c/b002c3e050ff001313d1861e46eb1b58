@@ -1,0 +1,20 @@
+package com.android.course.service;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+
+public class ForegroundServiceClientActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_foreground_service);
+
+		// Intent used for starting the MusicService
+		final Intent musicService = new Intent(getApplicationContext(),
+				ForegroundService.class);
+	}
+}

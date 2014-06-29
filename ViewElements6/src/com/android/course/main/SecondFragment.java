@@ -14,6 +14,7 @@ import com.android.course.contentProvider.ContentInsertActivity;
 import com.android.course.contentProvider.ContentInsertMyAdapterActivity;
 import com.android.course.contentProvider.ContentLoaderActivity;
 import com.android.course.contentProvider.ContentProviderActivity;
+import com.android.course.myContentProvider.MyStringContentProviderUser;
 
 public class SecondFragment extends Fragment {
 	@Override
@@ -81,6 +82,19 @@ public class SecondFragment extends Fragment {
 				
 				Intent intent = new Intent(getActivity().getApplicationContext(),
 						ContentInsertMyAdapterActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+		
+		final Button btnMyContent = (Button) getActivity().findViewById(R.id.btnMyContent);
+		btnMyContent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						MyStringContentProviderUser.class);
 				startActivity(intent);
 				
 			}

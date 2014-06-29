@@ -1,0 +1,10 @@
+package com.android.course.myContentProvider;
+
+//Contract Class for accessing ContentResolver
+public class DataContract {
+
+	public static final Object DATA_TABLE = "table_data";
+
+	
+	
+}

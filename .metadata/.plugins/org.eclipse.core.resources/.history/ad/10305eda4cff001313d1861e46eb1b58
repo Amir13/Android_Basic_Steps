@@ -1,0 +1,7 @@
+package com.android.course.service;
+
+import android.app.Service;
+
+public class ForegroundService extends Service{
+
+}

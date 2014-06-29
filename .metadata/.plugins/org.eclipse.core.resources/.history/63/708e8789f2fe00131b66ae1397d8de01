@@ -1,0 +1,7 @@
+package com.android.course.MyContentProvider;
+
+import android.content.ContentProviderOperation;
+
+public class MyContentProvider extends ContentProvider{
+
+}

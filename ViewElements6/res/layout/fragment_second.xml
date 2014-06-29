@@ -57,4 +57,15 @@
         android:layout_marginTop="16dp"
         android:text="Insert using My Adapter" />
 
+    <Button
+        android:id="@+id/btnMyContent"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnInsert2"
+        android:layout_alignRight="@+id/btnInsert2"
+        android:layout_below="@+id/btnInsert2"
+        android:layout_marginTop="17dp"
+        android:text="Insert using my ContentProvider" />
+
 </RelativeLayout>

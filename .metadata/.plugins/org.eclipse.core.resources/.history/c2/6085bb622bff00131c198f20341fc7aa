@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ViewElements6</string>
+    <string name="activity_shared_preference">Shared Preference</string>
+    <string name="activity_preference_fragment">Preference Fragment</string>
+    <string name="activity_preference_fragment_view">Preference Fragment View &amp; Update</string>
+    <string name="activity_file">File Preference</string>
+    <string name="activity_external_file">External File Preference</string>
+    <string name="activity_sql">SQL</string>
+    <string name="activity_content_provider">ContentProviderQL</string>
+    <string name="activity_content_loader">ContentLoader</string>
+    <string name="activity_content_insert">Content Insert in Simple Adapter</string>
+    <string name="activity_content_insert_adapter">Content Insert using my Adapter</string>
+    <string name="activity_content_insert_my_content_user">Content Insert using my ContentProvider</string>
+    <string name="activity_content_insert_my_content">Content Insert using my ContentProvider</string>
+    <string name="title_section1">DataManagement</string>
+    <string name="title_section2">ContentProvider</string>
+    <string name="title_section3">Service</string>
+    <string name="title_section4">Fragment Demo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="contentprovider">ContentProvider</string>
+
+</resources>

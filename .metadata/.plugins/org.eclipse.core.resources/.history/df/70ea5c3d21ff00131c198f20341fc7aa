@@ -1,0 +1,31 @@
+package com.android.course.myContentProvider;
+
+import android.content.ContentResolver;
+import android.net.Uri;
+
+//Contract Class for accessing ContentResolver
+public class DataContract {
+
+	public static final String DATA_TABLE = "data_table";
+	public static final String _ID = "_id";
+	public static final String DATA = "data";
+	
+	// Mime type for a directory of data items
+	public static final String CONTENT_ITEM_TYPE = ContentResolver.CURSOR_ITEM_BASE_TYPE
+			+ "/MyStringContentProvider.data.text";
+
+	// Mime type for a directory of data items
+	public static final String CONTENT_DIR_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE
+			+ "/MyStringContentProvider.data.text";
+	
+
+	private static final Uri BASE_URI = Uri
+			.parse("content://com.android.course.myStringContentProvider/");
+
+	// The URI for this table.
+	public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_URI,
+			DATA_TABLE);
+
+	public static final String[] ALL_COLUMNS = {_ID, DATA};
+
+}

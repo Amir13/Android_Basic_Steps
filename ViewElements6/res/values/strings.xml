@@ -12,9 +12,15 @@
     <string name="activity_content_loader">ContentLoader</string>
     <string name="activity_content_insert">Content Insert in Simple Adapter</string>
     <string name="activity_content_insert_adapter">Content Insert using my Adapter</string>
+    <string name="activity_content_insert_my_content_user">Content Insert using my ContentProvider</string>
+    <string name="activity_content_insert_my_content">Content Insert using my ContentProvider</string>
+    <string name="activity_content_service_invoke">Simple Service Client</string>
+    <string name="activity_content_service">Simple Service</string>
+    <string name="activity_content_foreground_service">Foreground Service</string>
     <string name="title_section1">DataManagement</string>
     <string name="title_section2">ContentProvider</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section3">Service</string>
+    <string name="title_section4">Fragment Demo</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

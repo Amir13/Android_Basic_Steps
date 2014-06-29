@@ -1,0 +1,61 @@
+package com.android.course.service;
+
+import com.android.course.main.R;
+
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.os.IBinder;
+
+public class ForegroundService extends Service {
+
+	private MediaPlayer player;
+	private int startId;
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+
+		// Set up the Media Player
+		player = MediaPlayer.create(getApplicationContext(), R.raw.do_it);
+
+		if (player != null) {
+			player.setLooping(false);
+
+			// Stop Service when music has finished playing
+			player.setOnCompletionListener(new OnCompletionListener() {
+
+				@Override
+				public void onCompletion(MediaPlayer mp) {
+					stopSelf(startId);
+				}
+			});
+		}
+
+		// Create a notification area notification so the user
+		// can get back to the MusicServiceClient
+		final Intent notification = new Intent(getApplicationContext(),
+				ForegroundServiceClientActivity.class);
+
+		final PendingIntent pending = PendingIntent.getActivity(
+				getApplicationContext(), 0, notification, 0);
+
+		final Notification not = new Notification.Builder(
+				getApplicationContext())
+				.setSmallIcon(android.R.drawable.ic_media_play)
+				.setOngoing(true).setContentTitle("Music by Service")
+				.setContentText("Click to start the music")
+				.setContentIntent(pending).build();
+
+	}
+
+	// Can't bind to this Service
+	@Override
+	public IBinder onBind(Intent arg0) {
+		return null;
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.android.course.myContentProvider;
+
+import android.app.ListActivity;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.os.Bundle;
+
+public class MyStringContentProviderUser extends ListActivity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		
+		ContentResolver content = getContentResolver();
+		
+		ContentValues values = new ContentValues();
+		
+		values.put(DataContract.DATA, "Record1");
+		Uri first = content.insert(DataContract.CONTENT_URI, values);
+	
+	}
+	
+}

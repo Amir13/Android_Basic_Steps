@@ -63,6 +63,13 @@ public class MainActivity extends ActionBarActivity implements
 							new SecondFragment())
 					.commit();
 			break;
+		case 2:
+			fragmentManager
+			.beginTransaction()
+			.replace(R.id.container,
+					new ThridFragment())
+					.commit();
+			break;
 		default:
 			fragmentManager
 					.beginTransaction()
@@ -84,6 +91,9 @@ public class MainActivity extends ActionBarActivity implements
 			break;
 		case 3:
 			mTitle = getString(R.string.title_section3);
+			break;
+		case 4:
+			mTitle = getString(R.string.title_section4);
 			break;
 		}
 	}

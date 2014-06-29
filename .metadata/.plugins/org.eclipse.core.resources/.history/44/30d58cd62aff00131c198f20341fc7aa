@@ -1,0 +1,7 @@
+package com.android.course.main;
+
+import android.support.v4.app.Fragment;
+
+public class ThridFragment extends Fragment {
+
+}

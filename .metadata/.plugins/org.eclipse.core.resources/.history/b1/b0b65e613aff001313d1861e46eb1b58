@@ -1,0 +1,19 @@
+package com.example.test;
+
+public class myservice extends IntentService{
+    public myservice() {
+          super("myservice");
+          // TODO Auto-generated constructor stub
+    }
+    @Override
+    protected void onHandleIntent(Intent intent) {
+          // TODO Auto-generated method stub
+          Log.w("TAG","Started my Service");
+    }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+          // TODO Auto-generated method stub
+          Toast.makeText(getApplicationContext(), "Starting my Service", Toast.LENGTH_LONG).show();
+          return super.onStartCommand(intent, flags, startId);
+    }
+}

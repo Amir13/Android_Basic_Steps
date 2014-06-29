@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;do_it.mp3&apos; to &apos;raw&apos;&#x0D;&#x0A;- Original project: &apos;ViewElements5&apos;&#x0D;&#x0A;- Destination element: &apos;raw&apos;&#x0D;&#x0A;- Original element: &apos;do_it.mp3&apos;" description="Copy file" element1="res/raw/do_it.mp3" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1404019249386" target="/ViewElements6/res/raw" units="0" version="1.0"/>
+</session>

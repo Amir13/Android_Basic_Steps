@@ -1,0 +1,43 @@
+package com.android.course.main;
+
+import com.android.course.service.ServiceClientActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class ThridFragment extends Fragment {
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+
+		View root = inflater.inflate(R.layout.fragment_thrid, container, false);
+		return root;
+	}
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+
+		super.onActivityCreated(savedInstanceState);
+		
+		final Button btnService = (Button) getActivity().findViewById(R.id.btnService);
+		btnService.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				Intent intent = new Intent(getActivity().getApplicationContext(),
+						ServiceClientActivity.class);
+				startActivity(intent);
+
+			}
+		});
+	}
+	
+}

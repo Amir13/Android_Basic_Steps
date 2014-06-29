@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;myservice.java&apos; to &apos;ViewElements6/src/com.android.course.service&apos;&#x0D;&#x0A;- Original project: &apos;test&apos;&#x0D;&#x0A;- Destination element: &apos;ViewElements6/src/com.android.course.service&apos;&#x0D;&#x0A;- Original element: &apos;com.example.test.myservice.java&apos;" description="Copy compilation unit" destination="=ViewElements6/src&lt;com.android.course.service" element1="/src&lt;com.example.test{myservice.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1404011521096" units="1" version="1.0"/>
+</session>
