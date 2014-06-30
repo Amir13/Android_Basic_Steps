@@ -25,6 +25,17 @@
         android:text="Simple Service" />
 
     <Button
+        android:id="@+id/btnMessenger"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnRemoteService"
+        android:layout_alignRight="@+id/btnRemoteService"
+        android:layout_below="@+id/btnRemoteService"
+        android:layout_marginTop="30dp"
+        android:text="Messenger Service" />
+
+    <Button
         android:id="@+id/btnRemoteService"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -32,7 +43,29 @@
         android:layout_alignLeft="@+id/btnService"
         android:layout_alignRight="@+id/btnService"
         android:layout_below="@+id/btnService"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="32dp"
         android:text="Foreground Service" />
+
+    <Button
+        android:id="@+id/btnAidl"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnMessenger"
+        android:layout_alignRight="@+id/btnMessenger"
+        android:layout_below="@+id/btnMessenger"
+        android:layout_marginTop="21dp"
+        android:text="AIDL Service" />
+
+    <Button
+        android:id="@+id/btnExternal"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAidl"
+        android:layout_alignRight="@+id/btnAidl"
+        android:layout_below="@+id/btnAidl"
+        android:layout_marginTop="16dp"
+        android:text="External Aidl Service" />
 
 </RelativeLayout>

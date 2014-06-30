@@ -1,0 +1,25 @@
+package com.android.course.service;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Messenger;
+
+public class AidlService extends Service{
+
+	//Messenger that receives messages from clients 
+	final Messenger messenger = new Messenger(new IncomingMessagesHanlder());
+	
+//	Hanlder for incoming messages
+	static class IncomingMessagesHanlder extends Handler{
+		
+		
+	}
+	
+	@Override
+	public IBinder onBind(Intent intent) {
+		return null;
+	}
+
+}

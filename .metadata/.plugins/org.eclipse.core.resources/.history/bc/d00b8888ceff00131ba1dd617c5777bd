@@ -1,0 +1,39 @@
+package com.android.course.service;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
+
+import com.android.course.interfaces.aidl.KeyGenerator;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.os.RemoteException;
+
+public class AidlService extends Service {
+
+	// Set of already assigned IDs
+	// Note: These keys are not guaranteed to be unique if the Service is killed
+	// and restarted.
+
+	private final static Set<UUID> ids = new HashSet<UUID>();
+
+	// Implement the Stub for this Object
+	private final KeyGenerator.Stub binder = new KeyGenerator.Stub() {
+
+		// Implement the remote method
+		@Override
+		public String getKey() throws RemoteException {
+			UUid uniqueId;
+			
+		}
+	};
+
+	@Override
+	public IBinder onBind(Intent intent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -16,3 +16,15 @@
 1404018242342	Delete element
 1404019619295	Rename type 'ForegroundServiceActivity'
 1404020915631	Rename local variable 'musicServiceIntent'
+1404054763010	Rename type 'ServiceMessengerClientActivity'
+1404073848279	Rename package 'com.android.course.aidl'
+1404073869519	Rename package 'com.android.course.aidls'
+1404074536776	Delete element
+1404074575968	Rename package 'com.android.course.aidl'
+1404085132283	Rename resource 'KeyGenerator.aidl'
+1404085224100	Delete element
+1404085226549	Delete element
+1404085515306	Rename package 'com.android.course.interfaces.aidl'
+1404087276196	Extracts string 'Medium Text' into R.string.instructions
+1404088969215	Copy file
+1404089095800	Delete element

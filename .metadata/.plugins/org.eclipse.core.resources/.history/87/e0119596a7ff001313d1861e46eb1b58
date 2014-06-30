@@ -1,0 +1,15 @@
+package com.android.course.service;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class MessengerServiceClientActivity extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_messenger);
+	}
+}

@@ -1,0 +1,20 @@
+package com.android.course.service;
+
+import com.android.course.main.R;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+
+public class MessengerServiceClientActivity extends Activity {
+
+	// Intent for binding to the service
+	private final static Intent intentService = new Intent(
+			"com.android.course.service.AidlService");
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_messenger);
+	}
+}

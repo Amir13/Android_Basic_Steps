@@ -1,0 +1,45 @@
+package com.android.course.service;
+
+import com.android.course.interfaces.aidl.KeyGenerator;
+import com.android.course.main.R;
+
+import android.R.bool;
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class AidlServiceClient extends Activity {
+
+	private KeyGenerator keyGen;
+	private boolean isBound;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_aidl);
+
+		final TextView output = (TextView) findViewById(R.id.output);
+
+		final Button goButton = (Button) findViewById(R.id.go_button);
+		goButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				try {
+					if (isBound)
+						output.setText(keyGen.getKey());
+				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+	}
+
+}

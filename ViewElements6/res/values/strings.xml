@@ -17,6 +17,9 @@
     <string name="activity_content_service_invoke">Simple Service Client</string>
     <string name="activity_content_service">Simple Service</string>
     <string name="activity_content_foreground_service">Foreground Service</string>
+    <string name="activity_content_messenger">Messenger Service</string>
+    <string name="activity_content_aidl">AIDL Service</string>
+    <string name="activity_content_key">Key Service</string>
     <string name="title_section1">DataManagement</string>
     <string name="title_section2">ContentProvider</string>
     <string name="title_section3">Service</string>
@@ -26,5 +29,7 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="contentprovider">ContentProvider</string>
+    <string name="instructions">To execute this application, is required to have previously installed the application ServiceWithIPCExampleService</string>
+    <string name="comments">This application execute an AIDL service inside the same Android project.</string>
 
 </resources>

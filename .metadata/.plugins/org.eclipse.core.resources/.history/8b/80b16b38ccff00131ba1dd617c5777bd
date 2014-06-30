@@ -1,0 +1,5 @@
+package com.android.course.aidl
+
+interface KeyGenerator {
+    public String getKey();
+}
