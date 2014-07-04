@@ -71,9 +71,8 @@ public class AidlServiceClient extends Activity {
 		boolean bounded= false;
 		
 		if (!isBound) {
-			Intent intent = new Intent(KeyGeneratorAidl.class.getName());
-//			Creating the intent passing the context does not work
-//			Intent intent = new Intent(getApplicationContext(), KeyGeneratorAidl.class);
+//			Intent intent = new Intent(KeyGeneratorAidl.class.getName());
+			Intent intent = new Intent(getApplicationContext(), KeyGeneratorAidl.class);
 			bounded = bindService(intent, connectionService, Context.BIND_AUTO_CREATE);
 		}
 		
